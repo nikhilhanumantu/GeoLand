@@ -39,11 +39,23 @@ app_state = {
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Initialize device, load classes, load best model
+    # Startup: Initialize device, load metadata (img_size), load classes, load best model
     device = get_device()
     app_state["device"] = device
+
+    # Read img_size from best_model_metadata.json as single source of truth
+    meta_path = "models/best_model_metadata.json"
+    img_size = 112
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, "r") as f:
+                img_size = int(json.load(f).get("img_size", 112))
+        except Exception:
+            pass
+    app_state["img_size"] = img_size
+
     app_state["transform"] = transforms.Compose([
-        transforms.Resize((112, 112)),
+        transforms.Resize((img_size, img_size)),
         transforms.ToTensor(),
         transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD)
     ])
@@ -211,7 +223,9 @@ async def predict_land_use(
         "telemetry": {
             "latency_ms": latency_ms,
             "device": str(app_state["device"]).upper(),
-            "model_architecture": f"{app_state['model_name']} + Kaggle 99% CNN"
+            "model_architecture": app_state["model_name"],
+            "input_dimensions": f"{raw_image.width} × {raw_image.height}",
+            "inference_input_size": f"{app_state.get('img_size', 112)} × {app_state.get('img_size', 112)}"
         }
     }
 

@@ -48,8 +48,8 @@
 <span class="font-label-lg text-label-lg text-primary">Tile EuroSAT_RGB_Hwy_4102.tif</span>
 </div>
 <div class="flex items-center gap-space-xs">
-<span class="font-label-md text-label-md text-outline px-space-xs py-0.5 bg-surface-container rounded">Sentinel-2 MSI</span>
-<span class="font-label-md text-label-md text-outline px-space-xs py-0.5 bg-surface-container rounded">10m / px</span>
+<span id="tile-sensor-badge" class="font-label-md text-label-md text-outline px-space-xs py-0.5 bg-surface-container rounded">Sentinel-2 MSI</span>
+<span id="tile-gsd-badge" class="font-label-md text-label-md text-outline px-space-xs py-0.5 bg-surface-container rounded">10m / px</span>
 </div>
 </div>
 <!-- Imagery Container with Reticle, Coordinate Overlays & Drag-and-Drop Dropzone -->
@@ -70,7 +70,7 @@
 </div>
 <div class="flex items-center gap-1 bg-surface-container-lowest/85 backdrop-blur-md px-2 py-1 rounded text-primary text-label-md font-medium shadow-sm">
 <span class="material-symbols-outlined text-[16px]">straighten</span>
-<span>640m × 640m</span>
+<span id="tile-scale-badge">640m × 640m</span>
 </div>
 </div>
 <!-- Optical Center Reticle Overlay -->
@@ -157,7 +157,7 @@ Confidence Level: 98.27%
 <span class="w-1.5 h-4 bg-secondary rounded-full"></span>
 <h2 class="font-headline-md text-headline-md text-primary tracking-tight">Prediction Result</h2>
 </div>
-<span class="font-label-md text-label-md text-secondary font-semibold bg-secondary-container px-2 py-0.5 rounded-full flex items-center gap-1">
+<span id="prediction-match-badge" class="font-label-md text-label-md text-secondary font-semibold bg-secondary-container px-2 py-0.5 rounded-full flex items-center gap-1">
 <span class="material-symbols-outlined text-[14px]">verified</span>
 <span>Optimal Match</span>
 </span>
@@ -242,7 +242,7 @@ Confidence Level: 98.27%
 </div>
 <div class="flex flex-col">
 <span class="font-label-md text-label-md text-outline">Input Dimensions</span>
-<span class="font-tabular-metrics text-tabular-metrics text-primary font-bold" id="meta-dimensions">64 × 64 (224 resized)</span>
+<span class="font-tabular-metrics text-tabular-metrics text-primary font-bold" id="meta-dimensions">64 × 64 (112 resized)</span>
 </div>
 <div class="flex flex-col">
 <span class="font-label-md text-label-md text-outline">Grad-CAM Salience</span>

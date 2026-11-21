@@ -498,6 +498,36 @@ function setupClassificationPage() {
             certaintyValEl.textContent = pred.confidence_percentage.toFixed(2);
         }
 
+        // Update Optimal Match vs Low Confidence Badge
+        const matchBadge = document.getElementById("prediction-match-badge");
+        if (matchBadge) {
+            if (pred.is_uncertain) {
+                matchBadge.className = "font-label-md text-label-md text-amber-800 dark:text-amber-300 font-semibold bg-amber-100 dark:bg-amber-900/40 px-2 py-0.5 rounded-full flex items-center gap-1";
+                matchBadge.innerHTML = `<span class="material-symbols-outlined text-[14px]">warning</span><span>Low Confidence</span>`;
+            } else {
+                matchBadge.className = "font-label-md text-label-md text-secondary font-semibold bg-secondary-container px-2 py-0.5 rounded-full flex items-center gap-1";
+                matchBadge.innerHTML = `<span class="material-symbols-outlined text-[14px]">verified</span><span>Optimal Match</span>`;
+            }
+        }
+
+        // Update Sensor, GSD and Scale Badges (Sentinel-2 vs Custom Upload)
+        const sensorBadge = document.getElementById("tile-sensor-badge");
+        const gsdBadge = document.getElementById("tile-gsd-badge");
+        const scaleBadge = document.getElementById("tile-scale-badge");
+        let wPx = imgElement.naturalWidth || 64;
+        let hPx = imgElement.naturalHeight || 64;
+        if (data.telemetry?.input_dimensions) {
+            const parts = data.telemetry.input_dimensions.split("×");
+            if (parts.length === 2) {
+                wPx = parseInt(parts[0].trim()) || wPx;
+                hPx = parseInt(parts[1].trim()) || hPx;
+            }
+        }
+        const isEurosatScale = (wPx <= 128 && hPx <= 128);
+        if (sensorBadge) sensorBadge.textContent = isEurosatScale ? "Sentinel-2 MSI" : "Custom Upload";
+        if (gsdBadge) gsdBadge.textContent = isEurosatScale ? "10m / px" : `${wPx} × ${hPx} px`;
+        if (scaleBadge) scaleBadge.textContent = isEurosatScale ? "640m × 640m" : `${wPx} × ${hPx} px`;
+
         // Update Viewport Confidence Badge
         const viewportBadge = document.getElementById("viewport-conf-badge");
         if (viewportBadge) {
@@ -522,8 +552,14 @@ function setupClassificationPage() {
         if (data.telemetry) {
             const latEl = document.getElementById("meta-latency");
             const modelEl = document.getElementById("meta-model");
+            const dimEl = document.getElementById("meta-dimensions");
             if (latEl) latEl.textContent = `${data.telemetry.latency_ms.toFixed(1)} ms (${data.telemetry.device})`;
             if (modelEl) modelEl.textContent = data.telemetry.model_architecture;
+            if (dimEl) {
+                const rawDims = data.telemetry.input_dimensions || `${imgElement.naturalWidth || 64} × ${imgElement.naturalHeight || 64}`;
+                const inferSize = data.telemetry.inference_input_size ? `${data.telemetry.inference_input_size.split("×")[0].trim()} resized` : "112 resized";
+                dimEl.textContent = `${rawDims} (${inferSize})`;
+            }
         }
 
         // Salience description based on class

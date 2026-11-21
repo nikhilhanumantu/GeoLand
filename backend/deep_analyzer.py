@@ -68,13 +68,32 @@ def _infer_single(model, pil_img: Image.Image, transform, device) -> np.ndarray:
 def classify_crop_with_tta(model, crop_pil: Image.Image, transform, device, classes: list) -> dict:
     """
     Robust Multi-Scale & Orientation Test-Time Augmentation (TTA) with
+    aspect-ratio preservation on non-square/large uploads and
     remote-sensing spectral reality gating.
-    Averages predictions across original, horizontal flip, and slight scale variants.
     """
     w, h = crop_pil.size
+    is_large_or_nonsquare = (min(w, h) > 128) or (max(w, h) / max(min(w, h), 1) > 1.15)
+
     crops = [crop_pil, crop_pil.transpose(Image.FLIP_LEFT_RIGHT)]
-    if w >= 64 and h >= 64:
-        crops.append(crop_pil.transpose(Image.FLIP_TOP_BOTTOM))
+
+    if is_large_or_nonsquare:
+        # Aspect-ratio-preserving square crops to prevent squashing rectangular aerial images
+        min_dim = min(w, h)
+        left = (w - min_dim) // 2
+        top = (h - min_dim) // 2
+        center_crop = crop_pil.crop((left, top, left + min_dim, top + min_dim))
+        crops.append(center_crop)
+        crops.append(center_crop.transpose(Image.FLIP_LEFT_RIGHT))
+        if w > h:
+            crops.append(crop_pil.crop((0, 0, min_dim, min_dim)))
+            crops.append(crop_pil.crop((w - min_dim, 0, w, min_dim)))
+        elif h > w:
+            crops.append(crop_pil.crop((0, 0, min_dim, min_dim)))
+            crops.append(crop_pil.crop((0, h - min_dim, min_dim, h)))
+    else:
+        # Small EuroSAT patch (<= 128px)
+        if w >= 64 and h >= 64:
+            crops.append(crop_pil.transpose(Image.FLIP_TOP_BOTTOM))
 
     with torch.no_grad():
         logits_sum = None
@@ -90,13 +109,13 @@ def classify_crop_with_tta(model, crop_pil: Image.Image, transform, device, clas
     hsv = cv2.cvtColor(crop_np, cv2.COLOR_RGB2HSV)
     total_px = float(crop_np.shape[0] * crop_np.shape[1])
     
-    # Open water (cyan/blue) and dark deep water
-    w1 = cv2.inRange(hsv, np.array([80, 25, 20]), np.array([140, 255, 255]))
-    w2 = cv2.inRange(hsv, np.array([50, 10, 5]), np.array([150, 255, 80]))
+    # Strictly tuned water masks (H in 95..135, strictly excluding green H in 35..85)
+    w1 = cv2.inRange(hsv, np.array([95, 35, 30]), np.array([135, 255, 255]))  # cyan/blue open water
+    w2 = cv2.inRange(hsv, np.array([95, 15, 5]),  np.array([135, 255, 80]))   # dark blue/teal water
     water_ratio = float(np.sum(cv2.bitwise_or(w1, w2) > 0)) / total_px
     
-    # Healthy green vegetation
-    veg_mask = cv2.inRange(hsv, np.array([30, 25, 40]), np.array([95, 255, 255]))
+    # Healthy green vegetation (H in 30..85)
+    veg_mask = cv2.inRange(hsv, np.array([30, 25, 20]), np.array([85, 255, 255]))
     veg_ratio = float(np.sum(veg_mask > 0)) / total_px
 
     # If water presence is near-zero (< 2%) and vegetation is dominant (> 25%),
@@ -126,16 +145,16 @@ def _spectral_masks(img_np: np.ndarray) -> dict:
     hsv = cv2.cvtColor(img_np, cv2.COLOR_RGB2HSV)
     total = float(img_np.shape[0] * img_np.shape[1])
 
-    # Open water: cyan/blue, high saturation
-    water_open = cv2.inRange(hsv, np.array([85, 40, 60]),   np.array([135, 255, 255]))
-    # Dark water: estuaries / deep channels (low value)
-    water_dark = cv2.inRange(hsv, np.array([50, 10, 5]),    np.array([150, 255, 90]))
-    # Healthy vegetation: green hue
-    vegetation = cv2.inRange(hsv, np.array([32, 40, 50]),   np.array([90, 255, 255]))
+    # Open water: cyan/blue, high saturation (H: 95..135)
+    water_open = cv2.inRange(hsv, np.array([95, 35, 30]), np.array([135, 255, 255]))
+    # Dark water: deep blue/teal channels (H: 95..135, low value, strictly excluding green)
+    water_dark = cv2.inRange(hsv, np.array([95, 15, 5]),  np.array([135, 255, 80]))
+    # Healthy vegetation: green hue (H: 30..85)
+    vegetation = cv2.inRange(hsv, np.array([30, 25, 20]), np.array([85, 255, 255]))
     # Urban/concrete: low saturation, mid-high brightness
-    urban_bare = cv2.inRange(hsv, np.array([0, 0, 100]),    np.array([180, 50, 255]))
+    urban_bare = cv2.inRange(hsv, np.array([0, 0, 100]),  np.array([180, 50, 255]))
     # Bare soil/dry: brownish-yellow, low saturation
-    soil       = cv2.inRange(hsv, np.array([10, 10, 30]),   np.array([40, 200, 180]))
+    soil       = cv2.inRange(hsv, np.array([10, 10, 30]), np.array([30, 200, 180]))
 
     return {
         "water_open":  round(float(np.sum(water_open > 0)) / total * 100, 1),

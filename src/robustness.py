@@ -17,6 +17,16 @@ from src.dataset import IMAGENET_MEAN, IMAGENET_STD
 BLUR_SEVERITIES = [1.0, 2.0, 3.0, 5.0]
 NOISE_SEVERITIES = [0.05, 0.10, 0.20, 0.30]
 
+def get_standard_img_size() -> int:
+    meta_path = "models/best_model_metadata.json"
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, "r") as f:
+                return int(json.load(f).get("img_size", 112))
+        except Exception:
+            pass
+    return 112
+
 def apply_gaussian_blur(image: Image.Image, sigma: float) -> Image.Image:
     """Applies Gaussian blur with given radius sigma."""
     return image.filter(ImageFilter.GaussianBlur(radius=sigma))
@@ -35,14 +45,14 @@ def apply_brightness_change(image: Image.Image, factor: float) -> Image.Image:
 
 class CorruptedSubset(Dataset):
     """Dataset that dynamically applies corruptions to images before standard normalization."""
-    def __init__(self, base_dataset, indices, corruption_type=None, severity=None, img_size=224):
+    def __init__(self, base_dataset, indices, corruption_type=None, severity=None, img_size=112):
         self.base_dataset = base_dataset
         self.indices = indices
         self.corruption_type = corruption_type
         self.severity = severity
-        self.img_size = img_size
+        self.img_size = img_size or get_standard_img_size()
         self.to_tensor_norm = transforms.Compose([
-            transforms.Resize((img_size, img_size)),
+            transforms.Resize((self.img_size, self.img_size)),
             transforms.ToTensor(),
             transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD)
         ])

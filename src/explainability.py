@@ -46,8 +46,16 @@ class NativeGradCAM:
         score = output[0, target_category]
         score.backward()
 
-        weights = torch.mean(self.gradients, dim=(2, 3), keepdim=True)
-        cam = torch.sum(weights * self.activations, dim=1, keepdim=True)
+        activations = self.activations
+        gradients = self.gradients
+
+        # Check for channels-last format (B, H, W, C) from timm ConvNeXt LayerNorm and permute to (B, C, H, W)
+        if activations.ndim == 4 and activations.shape[-1] > activations.shape[1] and activations.shape[-1] > activations.shape[2]:
+            activations = activations.permute(0, 3, 1, 2)
+            gradients = gradients.permute(0, 3, 1, 2)
+
+        weights = torch.mean(gradients, dim=(2, 3), keepdim=True)
+        cam = torch.sum(weights * activations, dim=1, keepdim=True)
         cam = torch.relu(cam)
         cam = cam.squeeze().cpu().numpy()
 
@@ -75,9 +83,18 @@ def compute_gradcam_overlay(
         device = get_device()
     model.eval().to(device)
 
-    # Preprocess image
+    # Preprocess image using unified img_size
+    meta_path = "models/best_model_metadata.json"
+    img_size = 112
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, "r") as f:
+                img_size = int(json.load(f).get("img_size", 112))
+        except Exception:
+            pass
+
     eval_transform = transforms.Compose([
-        transforms.Resize((112, 112)),
+        transforms.Resize((img_size, img_size)),
         transforms.ToTensor(),
         transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD)
     ])
@@ -100,8 +117,15 @@ def compute_gradcam_overlay(
 
     if HAS_PYTORCH_GRADCAM and target_layers is not None:
         cam_cls = GradCAMPlusPlus if use_gradcam_plus_plus else GradCAM
+        def convnext_reshape_transform(tensor):
+            if tensor.ndim == 4 and tensor.shape[-1] > tensor.shape[1]:
+                return tensor.permute(0, 3, 1, 2)
+            return tensor
+
+        reshape_fn = convnext_reshape_transform if "convnext" in model_name.lower() else None
+
         try:
-            with cam_cls(model=model, target_layers=target_layers) as cam:
+            with cam_cls(model=model, target_layers=target_layers, reshape_transform=reshape_fn) as cam:
                 from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
                 targets = [ClassifierOutputTarget(target_category)]
                 grayscale_cam = cam(input_tensor=input_tensor, targets=targets)[0, :]
