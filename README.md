@@ -102,6 +102,30 @@ py -3 -m src.main_pipeline --epochs 5 --batch-size 64
 
 ---
 
+## 📦 Datasets & Download
+
+The project uses two satellite and aerial remote-sensing benchmarks. They are hosted as official GitHub Release assets for high-speed download:
+
+| Dataset | Format | Resolution & Scope | Classes | Images | Download Link |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **EuroSAT (Sentinel-2 RGB)** | JPEG (`.jpg`) | 13-band Sentinel-2 RGB, 10m/px, 64×64 | 10 | 27,000 | [EuroSAT_RGB.zip](https://github.com/nikhilhanumantu/GeoLand/releases/download/v1.0.0/EuroSAT_RGB.zip) (89.5 MB) |
+| **UC Merced Land-Use** | GeoTIFF (`.tif`) | USGS National Map aerial orthoimagery, 0.3m/px, 256×256 | 21 | 2,100 | [UCMerced_LandUse.zip](https://github.com/nikhilhanumantu/GeoLand/releases/download/v1.0.0/UCMerced_LandUse.zip) (316.4 MB) |
+
+### Automated One-Click Dataset Setup
+
+Run the included downloader script to automatically fetch and unpack both datasets directly into `dataset/`:
+
+```powershell
+python scripts/download_dataset.py
+```
+
+Or manually extract the downloaded archives:
+- Extract `EuroSAT_RGB.zip` into `dataset/EuroSAT_RGB/`
+- Extract `UCMerced_LandUse.zip` into `dataset/UCMerced_LandUse/`
+
+
+---
+
 ## 📡 REST API Reference
 
 | Method | Endpoint | Description |
