@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-bright":"#fbf9f0","error":"#ba1a1a","primary-container":"#0f3d2e","on-secondary-fixed":"#002204","tertiary-fixed-dim":"#a2d3a4","inverse-surface":"#30312b","on-error-container":"#93000a","outline-variant":"#c0c8c3","on-tertiary-container":"#7baa7e","on-secondary-fixed-variant":"#005312","on-secondary-container":"#217128","background":"#fbf9f0","on-primary-fixed-variant":"#234f3f","surface-container-high":"#eae8df","primary-fixed-dim":"#a2d1bb","surface-container":"#f0eee5","surface-container-low":"#f6f4eb","surface-tint":"#3b6756","on-tertiary-fixed":"#002109","secondary-fixed":"#a3f69c","primary-fixed":"#beedd7","surface-container-highest":"#e4e3da","tertiary-container":"#113e1c","on-primary-container":"#7ba894","tertiary-fixed":"#bdefbe","secondary-container":"#a0f399","on-primary":"#ffffff","on-background":"#1b1c17","error-container":"#ffdad6","inverse-on-surface":"#f3f1e8","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-tertiary-fixed-variant":"#24502c","surface":"#fbf9f0","on-surface":"#1b1c17","on-error":"#ffffff","secondary":"#1b6d24","tertiary":"#00270b","surface-variant":"#e4e3da","outline":"#717974","primary":"#00261a","surface-dim":"#dcdad1","secondary-fixed-dim":"#88d982","on-secondary":"#ffffff","inverse-primary":"#a2d1bb","on-primary-fixed":"#002116","on-surface-variant":"#414944"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter":"1.25rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem"},fontFamily:{"headline-md":["Manrope"],"headline-sm":["Manrope"],"tabular-metrics":["Inter"],"body-md":["Manrope"],"display-lg":["Manrope"],"body-sm":["Manrope"],"headline-lg":["Manrope"],"label-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Manrope"],"body-lg":["Manrope"]},fontSize:{"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"tabular-metrics":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">GeoLand AI</span><span class="font-label-md text-label-md text-outline leading-tight">Earth Observation ML</span></div></div><div class="px-space-md py-space-xs"><div class="h-px w-full bg-surface-container-high"></div></div><nav class="flex-1 px-space-sm py-space-xs space-y-space-xs overflow-y-auto" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r"><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dataset-explorer" href="dataset_explorer.html"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Explorer</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="classification" href="satellite_image_classification.html"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span>Classification</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multispectral-analysis" href="multispectral_analysis.html"><span class="material-symbols-outlined text-[20px]">layers</span><span>Multispectral Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="robustness-test" href="robustness_analysis.html"><span class="material-symbols-outlined text-[20px]">shield_with_heart</span><span>Robustness Test</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="image-summary" href="image_summary.html"><span class="material-symbols-outlined text-[20px]">collections</span><span>Image Summary</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="error-analysis" href="error_confusion_analysis.html"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Error Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-comparison" href="model_comparison.html"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span>Model Comparison</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="experiments-reports" href="experiments_reports.html"><span class="material-symbols-outlined text-[20px]">science</span><span>Experiments &amp; Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-management-and-settings" href="model_management_settings.html"><span class="material-symbols-outlined text-[20px]">settings</span><span>Model Management &amp; Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between shadow-[0_1px_4px_rgba(15,61,46,0.04)]"><div class="flex items-center gap-space-xs min-w-0"><div class="relative flex-shrink-0"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="min-w-0 pl-space-xs"><p class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Dr. Elena Rostova</p><p class="font-label-md text-label-md text-outline truncate leading-tight">Lead Geospatial Scientist</p></div></div><button class="text-outline hover:text-on-surface transition-colors p-space-xs rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md min-w-0"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex items-center gap-space-xs font-body-md text-body-md text-outline-variant"><span class="text-on-surface-variant font-label-lg text-label-lg font-medium">GeoLand AI</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-primary font-headline-sm text-headline-sm font-semibold tracking-tight">Intelligent Land Observation</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">Sentinel-2 &amp; EuroSAT Ready</span></div><div class="flex items-center gap-space-xs"><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button><a href="satellite_image_classification.html" class="px-space-md py-1.5 bg-primary text-on-primary rounded font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-colors flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">satellite_alt</span><span>Run Inference</span></a></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Dynamic Sidebar Sync Script for exact match -->
+<script>
+    (function() {
+      const activePath = 'error-analysis';
+      const navLinks = document.querySelectorAll('aside nav a');
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-path') === activePath) {
+          link.className = "flex items-center gap-space-sm px-space-md py-space-xs rounded bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r transition-colors";
+        } else {
+          link.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-semibold', 'before:content-[\'\']');
+        }
+      });
+    })();
+  </script>
+<!-- Page Header & Action Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg pt-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-outline mb-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary font-bold">Diagnostic Suite</span>
+<span>•</span>
+<span class="font-label-md text-label-md">EuroSAT Validation Fold #3</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Error &amp; Confusion Analysis</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Analyze misclassifications and identify frequently confused spectral classes across inference checkpoints.</p>
+</div>
+<!-- Global Model & Metric Switcher -->
+<div class="flex items-center gap-space-sm self-start md:self-auto bg-surface-container p-1 rounded-xl shadow-sm">
+<div class="flex items-center bg-surface-container-lowest px-space-md py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mr-2">model_training</span>
+<span class="font-label-lg text-label-lg text-primary">ResNet50 (100 Epochs)</span>
+</div>
+<button class="px-space-md py-1.5 font-label-lg text-label-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors flex items-center gap-1">
+<span>Normalized</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container-low transition-colors" title="Export Heatmap Matrix">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start">
+<!-- LEFT CARD: Confusion Matrix Heatmap (7 cols on Desktop) -->
+<section class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Confusion Matrix (ResNet50)</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md">N = 5,400</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Row-normalized class probabilities across 10 EuroSAT surface classes</p>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Diagonal = Recall</span>
+</div>
+</div>
+<!-- Matrix Heatmap with Y and X Axes -->
+<div class="flex flex-col select-none overflow-x-auto pb-space-xs">
+<div class="flex items-center min-w-[500px]">
+<!-- Y-Axis Vertical Label -->
+<div class="w-8 flex items-center justify-center -mr-2">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-outline [writing-mode:vertical-rl] rotate-180">
+              True Class
+            </span>
+</div>
+<!-- Y-Axis Class Labels -->
+<div class="flex flex-col justify-around h-[360px] pr-2 text-right">
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">For</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Res</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Riv</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Hwy</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Agr</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Ind</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Her</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Pas</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Crop</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Sea</span>
+</div>
+<!-- 10x10 Matrix Grid -->
+<div class="flex-1 grid grid-cols-10 gap-1.5 h-[360px] p-2 bg-surface-container-low rounded-xl">
+<!-- Row 1: Forest (For) -->
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="For -&gt; For: 97.4%">.97</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-secondary-container/40 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px] font-bold" title="For -&gt; Her: 3.16%">.03</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 2: Residential (Res) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Res -&gt; Res: 94.2%">.94</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-secondary-container/30 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px] font-semibold">.02</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-error-container text-on-error-container rounded flex items-center justify-center font-tabular-metrics text-[10px] font-bold shadow-sm" title="Res -&gt; Ind: 4.27%">.04</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 3: River (Riv) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Riv -&gt; Riv: 98.1%">.98</div>
+<div class="bg-secondary-container/20 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 4: Highway (Hwy) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-secondary-container/40 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px] font-bold" title="Hwy -&gt; Res: 2.41%">.02</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Hwy -&gt; Hwy: 95.8%">.96</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 5: Agricultural (Agr) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Agr -&gt; Agr: 95.1%">.95</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-secondary-container/40 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px] font-bold" title="Agr -&gt; Pas: 2.96%">.03</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 6: Industrial (Ind) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-error-container text-on-error-container rounded flex items-center justify-center font-tabular-metrics text-[10px] font-bold" title="Ind -&gt; Res: 4.10%">.04</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Ind -&gt; Ind: 94.6%">.95</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 7: Herbaceous (Her) -->
+<div class="bg-secondary-container/30 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px]">.02</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Her -&gt; Her: 96.2%">.96</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 8: Pasture (Pas) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-secondary-container/40 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px] font-bold">.03</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Pas -&gt; Pas: 94.8%">.95</div>
+<div class="bg-secondary-container/20 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 9: Permanent Crop (Crop) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-secondary-container/20 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px]">.01</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-secondary-container/30 text-secondary rounded flex items-center justify-center font-tabular-metrics text-[10px] font-semibold">.02</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Crop -&gt; Crop: 97.0%">.97</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<!-- Row 10: Sea / Lake (Sea) -->
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-surface-bright text-outline rounded flex items-center justify-center font-tabular-metrics text-[10px]">.00</div>
+<div class="bg-primary-container text-on-primary rounded flex items-center justify-center font-tabular-metrics text-[11px] font-bold shadow-sm" title="Sea -&gt; Sea: 99.8%">1.0</div>
+</div>
+<!-- Colorbar Legend on Right Side -->
+<div class="flex flex-col items-center justify-between h-[360px] pl-3 py-1">
+<span class="font-tabular-metrics text-[10px] text-outline font-semibold">1.0</span>
+<div class="w-2.5 h-full rounded-full my-1 bg-gradient-to-b from-primary via-secondary to-surface-bright shadow-inner"></div>
+<span class="font-tabular-metrics text-[10px] text-outline font-semibold">0.0</span>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex pl-12 pr-6 pt-2">
+<div class="w-full grid grid-cols-10 text-center">
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">For</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Res</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Riv</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Hwy</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Agr</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Ind</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Her</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Pas</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Crop</span>
+<span class="font-tabular-metrics text-body-sm font-semibold text-primary">Sea</span>
+</div>
+</div>
+<!-- X-Axis Bottom Label -->
+<div class="text-center pt-1">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-outline">
+            Predicted Class
+          </span>
+</div>
+</div>
+<!-- Quick Metrics Ribbon below Matrix -->
+<div class="mt-space-md pt-space-md flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">96.72%</div>
+<div class="font-label-md text-label-md text-outline">Mean Diagonal Accuracy</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-error shadow-sm">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-error font-bold">3.28%</div>
+<div class="font-label-md text-label-md text-outline">Total Classification Error</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">grid_4x4</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">0.963</div>
+<div class="font-label-md text-label-md text-outline">Cohen's Kappa (?)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT CARD: Most Confused Pairs + Inspector (5 cols on Desktop) -->
+<section class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- Upper Section: Most Confused Pairs Cards -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Most Confused Pairs</h2>
+<p class="font-body-sm text-body-sm text-outline">Highest bi-directional misclassification rates</p>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">sync_problem</span>
+</div>
+<!-- Confused Pairs Ranked Stack -->
+<div class="flex flex-col gap-2.5">
+<!-- Pair 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group cursor-pointer shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-tabular-metrics text-label-md font-bold shrink-0">1</span>
+<div class="flex items-center gap-1.5 font-label-lg text-label-lg font-semibold text-primary truncate">
+<span>Residential</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">swap_horiz</span>
+<span>Industrial</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-tabular-metrics text-label-lg font-bold shrink-0">
+              4.27%
+            </span>
+</div>
+<!-- Pair 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group cursor-pointer shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-md font-bold shrink-0">2</span>
+<div class="flex items-center gap-1.5 font-label-lg text-label-lg font-semibold text-primary truncate">
+<span>Forest</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">swap_horiz</span>
+<span>Herbaceous</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-lg font-bold shrink-0">
+              3.16%
+            </span>
+</div>
+<!-- Pair 3 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group cursor-pointer shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-md font-bold shrink-0">3</span>
+<div class="flex items-center gap-1.5 font-label-lg text-label-lg font-semibold text-primary truncate">
+<span>Agricultural</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">swap_horiz</span>
+<span>Pasture</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-lg font-bold shrink-0">
+              2.96%
+            </span>
+</div>
+<!-- Pair 4 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group cursor-pointer shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-md font-bold shrink-0">4</span>
+<div class="flex items-center gap-1.5 font-label-lg text-label-lg font-semibold text-primary truncate">
+<span>Highway</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">swap_horiz</span>
+<span>Residential</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-lg font-bold shrink-0">
+              2.41%
+            </span>
+</div>
+<!-- Pair 5 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group cursor-pointer shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-md font-bold shrink-0">5</span>
+<div class="flex items-center gap-1.5 font-label-lg text-label-lg font-semibold text-primary truncate">
+<span>Permanent Crop</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">swap_horiz</span>
+<span>Pasture</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-tabular-metrics text-label-lg font-bold shrink-0">
+              1.85%
+            </span>
+</div>
+</div>
+</div>
+<!-- Lower Section: Ambiguous Boundary Tile Inspector -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Boundary Misclassification Inspector</h3>
+<p class="font-body-sm text-body-sm text-outline">Selected sample tiles from Residential ? Industrial border overlap</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold">10m / px</span>
+</div>
+<!-- Sample satellite tiles comparison -->
+<div class="grid grid-cols-3 gap-space-sm mt-space-xs">
+<!-- Thumbnail Tile 1 -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-2 group hover:bg-surface-container transition-colors">
+<div class="relative w-full aspect-square rounded overflow-hidden shadow-inner mb-2 bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Orthorectified Sentinel-2 satellite image tile of a suburban European zone blending residential low-rise housing roofs with warehouse rooftops, 10m multispectral resolution, crisp scientific aerial photography in natural forest green and warm clay hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_XK3cLf7ivfROZF9G6CLQDMyajebb63jShUdoh7vi--VDWSvof4F_v0d7PMY51rs_t8NPaksmJeH9l-2RVe9WOVcBOvgKtX-spXVCSpQ_D6ujt_7Ip-OvEqzMwPkz0uCohkTuMJeWgDN2Lbb1GMBQZEb5uk2I4yC1voFwn5pt1O6UKB9I4zEYxONXJQc1CXnuAfe0-LTUJRFK5JKcSnIOF9TZ4wcYdpJprb8jA8yV"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-surface/90 backdrop-blur font-tabular-metrics text-[9px] font-bold text-primary">Tile #4102</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-[10px]">
+<span class="text-outline">True:</span>
+<span class="font-semibold text-primary">Residential</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-[10px]">
+<span class="text-outline">Pred:</span>
+<span class="font-bold text-error">Industrial (68%)</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail Tile 2 -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-2 group hover:bg-surface-container transition-colors">
+<div class="relative w-full aspect-square rounded overflow-hidden shadow-inner mb-2 bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Satellite imagery slice displaying dense green forest tree canopy adjacent to grassy herbaceous pasture land, deep emerald and olive colors, scientific satellite sensor view with slight textural noise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgafx7QhnM85eF-FXNP7Usb_MHW1JZ_3dQw9brlk7j5CZxXruYHbkYNlGDIR8_p494xudt4R4yhvifvMlFIIspqYeY_i7mBA6n5ZUZyFC7qbBQEY2gyTUmtzPdcwo0UMVPfjU_sKxoqMBAzqvrrnPqB-QDzXMlOkz4IGjwHsil19V3OFyuW_mTEGGnLX-qX_e9unO2P9g5BT9qMsnr3InsDAzqtrlc5CiVP-8BhMxL"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-surface/90 backdrop-blur font-tabular-metrics text-[9px] font-bold text-primary">Tile #0893</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-[10px]">
+<span class="text-outline">True:</span>
+<span class="font-semibold text-primary">Forest</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-[10px]">
+<span class="text-outline">Pred:</span>
+<span class="font-bold text-error">Herbaceous (54%)</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail Tile 3 -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-2 group hover:bg-surface-container transition-colors">
+<div class="relative w-full aspect-square rounded overflow-hidden shadow-inner mb-2 bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Top-down multispectral satellite photo of linear transport highway strip cutting through residential neighborhood suburbs, dark asphalt contrast against garden vegetation, EuroSAT earth observation dataset style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxGZsmr5wEq9Lv5ewqpStVgPM3UwXoTowrjdLDNENQSuTWyqChuQ0z5ntbUfKiWYrwhs0vrV5wueiCKQGJddkA_lFqwn6rUNrfTpJa3BRUC8UkOWArguLwrrKOZLXHBCjceHueeuFDYzJ5Ge-DoXoiGPGajGw02i3nnRfxUHatfmN7yc11PtPQ0F0reMyD5qpH3IIB9BkIBk8yUfrNP2ox6sW0MaYRgPKu5WYGtXmW"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-surface/90 backdrop-blur font-tabular-metrics text-[9px] font-bold text-primary">Tile #7219</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between font-label-md text-[10px]">
+<span class="text-outline">True:</span>
+<span class="font-semibold text-primary">Highway</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-[10px]">
+<span class="text-outline">Pred:</span>
+<span class="font-bold text-error">Residential (61%)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-outline">Spectral ambiguity stems primarily from Band 8 (NIR) reflection overlap in flat roof concrete and asphalt surfaces.</span>
+<button class="px-space-sm py-1 font-label-md text-label-md text-secondary font-bold hover:underline shrink-0 ml-2">Inspect Grad-CAM ?</button>
+</div>
+</div>
+</section>
+</div>
+</div></main></div><script src="api.js"></script></body></html>

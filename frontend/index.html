@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GeoLand AI | Intelligent Satellite Land Use Classification</title>
+<!-- Inter & JetBrains Mono Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            deepBg: '#05130E',
+            forestDark: '#0A231A',
+            forestMedium: '#0F3D2E',
+            forestEmerald: '#144D3A',
+            emeraldAccent: '#00E676',
+            emeraldGlow: '#10B981',
+            mintLight: '#A5D6A7',
+            creamSoft: '#F4F9F5',
+            surfaceGlass: 'rgba(11, 37, 28, 0.72)',
+            surfaceGlassHover: 'rgba(16, 51, 39, 0.88)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          boxShadow: {
+            'glow-emerald': '0 0 25px -4px rgba(0, 230, 118, 0.45)',
+            'glow-card': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'hud': '0 0 20px rgba(0, 230, 118, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Glassmorphism and Highlights -->
+<style data-purpose="custom-layout-effects">
+    body {
+      background-color: #05130E;
+      color: #E2ECE6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glass-panel {
+      background: rgba(10, 35, 26, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(165, 214, 167, 0.15);
+    }
+
+    .glass-panel-elevated {
+      background: rgba(15, 61, 46, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+    }
+
+    .grid-crosshair {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(165, 214, 167, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(165, 214, 167, 0.05) 1px, transparent 1px);
+    }
+
+    .hero-vignette {
+      background: radial-gradient(circle at 50% 30%, rgba(5, 19, 14, 0.1) 0%, rgba(5, 19, 14, 0.82) 75%, #05130E 100%);
+    }
+
+    .telemetry-badge {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.02em;
+    }
+
+    /* Custom smooth scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05130E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #144D3A;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00E676;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-emeraldAccent selection:text-deepBg">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 lg:px-8 py-3.5 glass-panel border-b border-emeraldAccent/20">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center space-x-3 group" data-purpose="brand-logo" href="index.html">
+<div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-forestMedium to-deepBg border border-emeraldAccent/40 flex items-center justify-center shadow-glow-emerald transition-transform group-hover:scale-105">
+<i class="w-5 h-5 text-emeraldAccent transform -rotate-45" data-lucide="satellite"></i>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emeraldAccent opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emeraldAccent"></span>
+</span>
+</div>
+<div>
+<span class="text-xl font-bold tracking-tight text-white flex items-center">
+            GeoLand <span class="ml-1 text-emeraldAccent font-mono text-sm tracking-wider uppercase bg-emeraldAccent/10 px-1.5 py-0.5 rounded border border-emeraldAccent/30">AI</span>
+</span>
+<span class="block text-[10px] text-mintLight/70 font-mono tracking-widest uppercase">Sentinel-2 Geospatial Hub</span>
+</div>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-emerald-100/80" data-purpose="main-nav">
+<a class="hover:text-emeraldAccent transition-colors" href="dashboard.html">Dashboard</a>
+<a class="hover:text-emeraldAccent transition-colors" href="dataset_explorer.html">Dataset Explorer</a>
+<a class="hover:text-emeraldAccent transition-colors" href="satellite_image_classification.html">Classifier Studio</a>
+<a class="hover:text-emeraldAccent transition-colors" href="multispectral_analysis.html">Multispectral AI</a>
+<a class="hover:text-emeraldAccent transition-colors" href="model_comparison.html">Benchmarks</a>
+<a class="hover:text-emeraldAccent transition-colors" href="robustness_analysis.html">Robustness</a>
+</nav>
+<!-- Right Action & Live Status -->
+<div class="flex items-center space-x-4" data-purpose="header-actions">
+<!-- Live Stream Sentinel-2 Status -->
+<div class="hidden xl:flex items-center space-x-2 bg-forestDark/80 border border-emeraldAccent/25 rounded-full px-3 py-1 font-mono text-xs text-mintLight">
+<span class="w-2 h-2 rounded-full bg-emeraldAccent animate-pulse"></span>
+<span class="text-white/90">Sentinel-2 MSI Active</span>
+<span class="text-emeraldAccent/50">|</span>
+<span class="text-emeraldAccent">Live Ingest</span>
+</div>
+<!-- Explore Demo -->
+<a href="satellite_image_classification.html" class="hidden sm:inline-flex items-center text-xs font-semibold uppercase tracking-wider text-emerald-100 hover:text-white px-3.5 py-2 rounded-lg border border-white/10 hover:border-emeraldAccent/50 transition-all">
+          Explore Demo
+</a>
+<!-- Launch Dashboard CTA -->
+<a class="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider bg-emeraldAccent text-deepBg hover:bg-[#15f487] px-4 py-2 rounded-full shadow-glow-emerald transition-all duration-200 hover:scale-105 active:scale-95" href="dashboard.html">
+<span>Launch Dashboard</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative min-h-screen pt-28 pb-20 flex flex-col justify-center overflow-hidden" data-purpose="hero-section">
+<!-- Photorealistic Satellite Background -->
+<div class="absolute inset-0 z-0">
+<img alt="Ultra high-definition photorealistic satellite aerial view of diverse Earth landscape showing vibrant patchwork of agricultural fields, winding turquoise river, dense dark emerald forest canopy, and modern coastal city grid, curved Earth horizon glowing with atmospheric limb, cinematic lighting, Earth observation style, 8k resolution, crisp geospatial photography" class="w-full h-full object-cover object-center filter saturate-[1.15] contrast-[1.08] scale-105 transform motion-safe:transition-transform motion-safe:duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARt-MuqwkLYZB3Goxphrw_o4pC_zgJ8HrQVUsl22H8cknYrfj5AwRaxwzYx70jIC-PCHXhiNFkgy9_kgIfATY1PLG3UWds7AY-U_QntDz_jVUgUcja_OMCXZ2ZHHsh8_rPhVTucgRwQNzUd65q687-cwHVLI7SZPKvw-wEpJMxXxue_BGFg6WQy8QS79mZlrsho32FtYdug2w_UomF4xVQ9oKQw_tq4V430LlM56J2"/>
+<!-- Deep Vignette & Dark Forest Overlay -->
+<div class="absolute inset-0 hero-vignette"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-deepBg via-deepBg/40 to-transparent"></div>
+<div class="absolute inset-0 grid-crosshair opacity-30 pointer-events-none"></div>
+</div>
+<!-- Orbit Telemetry HUD Card (Top Left) -->
+<div class="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 w-full mt-8 mb-4">
+<div class="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-mintLight/80">
+<div class="glass-panel px-3 py-1.5 rounded-md flex items-center space-x-3 border-emeraldAccent/30 shadow-sm">
+<span class="flex items-center text-emeraldAccent">
+<i class="w-3.5 h-3.5 mr-1.5 animate-pulse" data-lucide="radio"></i>
+            ORBIT PASS: S2A-MSI-L2A
+          </span>
+<span class="text-white/30">/</span>
+<span>ALT: 786.2 KM</span>
+<span class="text-white/30">/</span>
+<span>INCL: 98.62° SSO</span>
+<span class="text-white/30">/</span>
+<span class="text-emeraldAccent font-semibold">GSD: 10m/PX</span>
+</div>
+<div class="glass-panel px-3 py-1.5 rounded-md flex items-center space-x-2 text-white/90 border-emeraldAccent/30">
+<i class="w-3.5 h-3.5 text-emeraldAccent" data-lucide="shield-check"></i>
+<span>GEOMETRIC ERROR: &lt; 0.12 px</span>
+<span class="text-white/30">/</span>
+<span class="text-mintLight">SUN ELEVATION: 48.7°</span>
+</div>
+</div>
+</div>
+<!-- Central Hero Headline & Interactive CTAs -->
+<div class="relative z-10 max-w-5xl mx-auto px-4 lg:px-8 text-center my-auto py-10" data-purpose="hero-copy">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full glass-panel border border-emeraldAccent/40 mb-6 shadow-glow-emerald">
+<span class="w-2 h-2 rounded-full bg-emeraldAccent animate-ping"></span>
+<span class="text-xs uppercase font-mono tracking-widest text-mintLight font-medium">Earth Observation Benchmark • 98.76% SOTA Accuracy</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
+        Next-Generation <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-emeraldAccent via-emerald-300 to-mintLight">
+          Satellite Land-Use
+        </span> Classification
+      </h1>
+<!-- Subheadline -->
+<p class="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-emerald-100/90 font-light leading-relaxed mb-10">
+        Transform multi-spectral Sentinel-2 and EuroSAT imagery into actionable land cover intelligence in real time. Deployed with ResNet-50, EfficientNet-B0, and sub-10m spatial fidelity.
+      </p>
+<!-- CTA Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 font-medium">
+<a class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl bg-emeraldAccent hover:bg-[#19f28a] text-deepBg font-bold text-sm tracking-wide transition-all shadow-glow-emerald transform hover:-translate-y-0.5 active:translate-y-0" href="dashboard.html">
+<span>Explore Interactive Dashboard</span>
+<i class="w-4 h-4 stroke-[2.5]" data-lucide="arrow-up-right"></i>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl glass-panel text-white hover:text-emeraldAccent hover:border-emeraldAccent/50 font-semibold text-sm transition-all transform hover:-translate-y-0.5" href="satellite_image_classification.html">
+<i class="w-4 h-4 text-emeraldAccent" data-lucide="play-circle"></i>
+<span>Inspect Sample Inference</span>
+</a>
+</div>
+<!-- Floating Glassmorphic Telemetry HUD overlays -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12 text-left max-w-4xl mx-auto">
+<!-- Live Inference Telemetry Box -->
+<div class="glass-panel-elevated p-4 rounded-xl flex items-center justify-between border-emeraldAccent/30 shadow-lg">
+<div class="flex items-center space-x-3">
+<div class="p-2.5 rounded-lg bg-emeraldAccent/10 border border-emeraldAccent/30 text-emeraldAccent">
+<i class="w-5 h-5" data-lucide="layers"></i>
+</div>
+<div>
+<div class="text-[11px] font-mono text-mintLight/80 uppercase">Inference Engine #04</div>
+<div class="text-sm font-semibold text-white">Highway &amp; Dense Vegetation</div>
+</div>
+</div>
+<div class="text-right font-mono">
+<div class="text-emeraldAccent font-bold text-sm">98.27% CONF</div>
+<div class="text-[11px] text-white/60">14.2ms Latency</div>
+</div>
+</div>
+<!-- Quick Metrics Pill Container -->
+<div class="glass-panel-elevated p-4 rounded-xl flex items-center justify-between border-emeraldAccent/30 shadow-lg">
+<div class="flex items-center space-x-3">
+<div class="p-2.5 rounded-lg bg-emeraldAccent/10 border border-emeraldAccent/30 text-emeraldAccent">
+<i class="w-5 h-5" data-lucide="cpu"></i>
+</div>
+<div>
+<div class="text-[11px] font-mono text-mintLight/80 uppercase">EuroSAT Spec</div>
+<div class="text-sm font-semibold text-white">13 MSI Bands • 10 Classes</div>
+</div>
+</div>
+<div class="text-right font-mono">
+<div class="text-emeraldAccent font-bold text-sm">27k Patches</div>
+<div class="text-[11px] text-emerald-400">Zero False Positives</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Telemetry Ticker Ribbon -->
+<div class="relative z-10 w-full border-y border-emeraldAccent/20 bg-forestDark/80 backdrop-blur-md py-3 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between text-xs font-mono text-mintLight/80 gap-4">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+<span class="text-white font-medium">BANDS:</span>
+<span>B01(Coastal) • B02(Blue) • B03(Green) • B04(Red) • B08(NIR) • B11(SWIR)</span>
+</div>
+<div class="flex items-center space-x-6 text-[11px]">
+<span>RESNET-50: 98.76%</span>
+<span class="text-white/30">|</span>
+<span>EFFICIENTNET-B0: 98.12%</span>
+<span class="text-white/30">|</span>
+<span class="text-emeraldAccent">TENSORRT ACCELERATED</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: InteractiveShowcaseSection -->
+<section class="py-24 relative bg-deepBg border-b border-forestEmerald/40" data-purpose="features-showcase" id="features">
+<div class="max-w-7xl mx-auto px-4 lg:px-8">
+<!-- Section Header -->
+<div class="max-w-3xl mb-16">
+<div class="inline-flex items-center space-x-2 font-mono text-xs uppercase tracking-widest text-emeraldAccent mb-3">
+<i class="w-3.5 h-3.5" data-lucide="zap"></i>
+<span>Architecture &amp; Intelligence Pillars</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Comprehensive Geospatial Analysis Suite
+        </h2>
+<p class="mt-3 text-base text-mintLight/80">
+          Engineered for mission-critical satellite telemetry, automated raster classification, and climate impact monitoring.
+        </p>
+</div>
+<!-- 4 Core Pillars Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Pillar 1 -->
+<a href="satellite_image_classification.html" class="glass-panel p-6 rounded-2xl hover:border-emeraldAccent/60 transition-all duration-300 group hover:-translate-y-1 block" data-purpose="pillar-card">
+<div class="w-12 h-12 rounded-xl bg-forestMedium/80 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent mb-6 group-hover:scale-110 transition-transform shadow-glow-emerald">
+<i class="w-6 h-6" data-lucide="scan"></i>
+</div>
+<div class="font-mono text-xs text-emeraldAccent mb-1">PILLAR 01</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-emeraldAccent transition-colors">Land-Use Classification</h3>
+<p class="text-sm text-mintLight/70 leading-relaxed mb-4">
+            Automated 10-class segmentation with real-time confidence scores and fast edge deployment across global coordinates.
+          </p>
+<div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-mintLight">
+<span>Inference Speed</span>
+<span class="text-emeraldAccent font-semibold">&lt; 15ms</span>
+</div>
+</a>
+<!-- Pillar 2 -->
+<a href="multispectral_analysis.html" class="glass-panel p-6 rounded-2xl hover:border-emeraldAccent/60 transition-all duration-300 group hover:-translate-y-1 block" data-purpose="pillar-card">
+<div class="w-12 h-12 rounded-xl bg-forestMedium/80 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent mb-6 group-hover:scale-110 transition-transform shadow-glow-emerald">
+<i class="w-6 h-6" data-lucide="activity"></i>
+</div>
+<div class="font-mono text-xs text-emeraldAccent mb-1">PILLAR 02</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-emeraldAccent transition-colors">Multispectral Band Analysis</h3>
+<p class="text-sm text-mintLight/70 leading-relaxed mb-4">
+            Full 13-band Sentinel-2 spectral signature decomposition from Coastal Aerosol (B1) to SWIR-2 (B12).
+          </p>
+<div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-mintLight">
+<span>Spectral Range</span>
+<span class="text-emeraldAccent font-semibold">443nm - 2190nm</span>
+</div>
+</a>
+<!-- Pillar 3 -->
+<a href="robustness_analysis.html" class="glass-panel p-6 rounded-2xl hover:border-emeraldAccent/60 transition-all duration-300 group hover:-translate-y-1 block" data-purpose="pillar-card">
+<div class="w-12 h-12 rounded-xl bg-forestMedium/80 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent mb-6 group-hover:scale-110 transition-transform shadow-glow-emerald">
+<i class="w-6 h-6" data-lucide="cloud-rain"></i>
+</div>
+<div class="font-mono text-xs text-emeraldAccent mb-1">PILLAR 03</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-emeraldAccent transition-colors">Environmental Robustness</h3>
+<p class="text-sm text-mintLight/70 leading-relaxed mb-4">
+            Stress-tested resilience against synthetic cloud haze, Gaussian blur (k=5), atmospheric distortion, and sensor noise (σ=0.10).
+          </p>
+<div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-mintLight">
+<span>Degradation Loss</span>
+<span class="text-emeraldAccent font-semibold">&lt; 1.4% Top-1</span>
+</div>
+</a>
+<!-- Pillar 4 -->
+<a href="experiments_reports.html" class="glass-panel p-6 rounded-2xl hover:border-emeraldAccent/60 transition-all duration-300 group hover:-translate-y-1 block" data-purpose="pillar-card">
+<div class="w-12 h-12 rounded-xl bg-forestMedium/80 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent mb-6 group-hover:scale-110 transition-transform shadow-glow-emerald">
+<i class="w-6 h-6" data-lucide="file-text"></i>
+</div>
+<div class="font-mono text-xs text-emeraldAccent mb-1">PILLAR 04</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-emeraldAccent transition-colors">Spatial Intelligence Summary</h3>
+<p class="text-sm text-mintLight/70 leading-relaxed mb-4">
+            Automated natural language report generator synthesizing vegetative density, hydrology networks, and urban sprawl trends.
+          </p>
+<div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-mintLight">
+<span>Output Formats</span>
+<span class="text-emeraldAccent font-semibold">JSON / GeoTIFF / PDF</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- END: InteractiveShowcaseSection -->
+<!-- BEGIN: InteractiveClassifierPreview -->
+<section class="py-24 bg-forestDark/50 relative overflow-hidden" data-purpose="live-classifier-preview" id="interactive-preview">
+<div class="max-w-7xl mx-auto px-4 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center space-x-2 font-mono text-xs uppercase tracking-widest text-emeraldAccent mb-3">
+<i class="w-3.5 h-3.5" data-lucide="sliders"></i>
+<span>Live Classifier Preview &amp; Radiometric Profiler</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Real-Time Land Cover Inference Matrix
+        </h2>
+<p class="mt-3 text-base text-mintLight/80">
+          Select any of the 10 canonical EuroSAT land-use classes to explore top-3 probability distribution and NDVI signature curves.
+        </p>
+</div>
+<!-- Interactive Mock Container -->
+<div class="glass-panel-elevated rounded-2xl p-6 lg:p-8 border-emeraldAccent/30 shadow-2xl">
+<!-- Class Selector Tabs -->
+<div class="flex flex-wrap gap-2 pb-6 border-b border-emeraldAccent/20" id="class-tabs">
+<button class="class-tab-btn active px-4 py-2 rounded-lg font-mono text-xs font-semibold bg-emeraldAccent text-deepBg transition-all" data-class="forest">
+            🌲 Forest (Dense Canopy)
+          </button>
+<button class="class-tab-btn px-4 py-2 rounded-lg font-mono text-xs font-medium text-emerald-100/70 hover:text-white hover:bg-forestMedium transition-all" data-class="river">
+            🌊 River &amp; Waterways
+          </button>
+<button class="class-tab-btn px-4 py-2 rounded-lg font-mono text-xs font-medium text-emerald-100/70 hover:text-white hover:bg-forestMedium transition-all" data-class="highway">
+            🛣️ Highway &amp; Infrastructure
+          </button>
+<button class="class-tab-btn px-4 py-2 rounded-lg font-mono text-xs font-medium text-emerald-100/70 hover:text-white hover:bg-forestMedium transition-all" data-class="residential">
+            🏡 Residential Clusters
+          </button>
+<button class="class-tab-btn px-4 py-2 rounded-lg font-mono text-xs font-medium text-emerald-100/70 hover:text-white hover:bg-forestMedium transition-all" data-class="agricultural">
+            🌾 Agricultural Crops
+          </button>
+<button class="class-tab-btn px-4 py-2 rounded-lg font-mono text-xs font-medium text-emerald-100/70 hover:text-white hover:bg-forestMedium transition-all" data-class="industrial">
+            🏭 Industrial Grid
+          </button>
+</div>
+<!-- Dynamic Output Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8 items-center">
+<!-- Sample Raster Tile Viewport -->
+<div class="lg:col-span-5 space-y-4">
+<div class="relative rounded-xl overflow-hidden border border-emeraldAccent/40 aspect-square group shadow-inner">
+<img alt="Selected class visual raster patch" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" id="preview-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARt-MuqwkLYZB3Goxphrw_o4pC_zgJ8HrQVUsl22H8cknYrfj5AwRaxwzYx70jIC-PCHXhiNFkgy9_kgIfATY1PLG3UWds7AY-U_QntDz_jVUgUcja_OMCXZ2ZHHsh8_rPhVTucgRwQNzUd65q687-cwHVLI7SZPKvw-wEpJMxXxue_BGFg6WQy8QS79mZlrsho32FtYdug2w_UomF4xVQ9oKQw_tq4V430LlM56J2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deepBg/90 via-transparent to-transparent"></div>
+<!-- Crosshair Overlay -->
+<div class="absolute inset-4 border border-emeraldAccent/30 rounded pointer-events-none flex flex-col justify-between p-3 font-mono text-[10px] text-emeraldAccent">
+<div class="flex justify-between">
+<span>LAT: 48.8566° N</span>
+<span>LON: 2.3522° E</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="bg-forestDark/80 px-2 py-0.5 rounded border border-emeraldAccent/40">BAND: RGB+NIR (B04,B03,B02,B08)</span>
+<span>10m/px GSD</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs font-mono text-mintLight/80 px-1">
+<span>PATCH ID: #S2-EU-98214</span>
+<span class="text-emeraldAccent">CLOUD COVER: 0.00%</span>
+</div>
+</div>
+<!-- Live Probability and Radiometric Metrics -->
+<div class="lg:col-span-7 space-y-6">
+<div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-2xl font-bold text-white tracking-tight" id="class-title">Forest Canopy &amp; Dense Woodlands</h3>
+<span class="font-mono text-emeraldAccent font-bold text-lg" id="class-confidence">99.42% Confidence</span>
+</div>
+<p class="text-sm text-mintLight/80 leading-relaxed" id="class-desc">
+                Predominant evergreen and deciduous dense woodland canopy characterized by extremely high NIR reflectance (Band 8) and steep Red-Edge NDVI slope (&gt;0.74).
+              </p>
+</div>
+<!-- Top-3 Probabilities Distribution -->
+<div class="space-y-3 p-4 rounded-xl bg-forestDark/60 border border-emeraldAccent/20">
+<span class="text-xs font-mono uppercase text-mintLight tracking-wider block">Top Predicted Classes</span>
+<div>
+<div class="flex justify-between text-xs font-mono mb-1 text-white">
+<span id="pred-1-name">1. Forest</span>
+<span class="text-emeraldAccent font-bold" id="pred-1-val">99.42%</span>
+</div>
+<div class="w-full bg-forestMedium/60 h-2.5 rounded-full overflow-hidden">
+<div class="bg-emeraldAccent h-full rounded-full transition-all duration-500" id="pred-1-bar" style="width: 99.42%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-mono mb-1 text-white/80">
+<span id="pred-2-name">2. Herbaceous Vegetation</span>
+<span id="pred-2-val">0.45%</span>
+</div>
+<div class="w-full bg-forestMedium/60 h-2 rounded-full overflow-hidden">
+<div class="bg-mintLight h-full rounded-full transition-all duration-500" id="pred-2-bar" style="width: 4.5%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-mono mb-1 text-white/60">
+<span id="pred-3-name">3. Permanent Crop</span>
+<span id="pred-3-val">0.13%</span>
+</div>
+<div class="w-full bg-forestMedium/60 h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-700 h-full rounded-full transition-all duration-500" id="pred-3-bar" style="width: 1.3%"></div>
+</div>
+</div>
+</div>
+<!-- Multispectral Band Signature HUD -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center font-mono">
+<div class="glass-panel p-3 rounded-lg border-emeraldAccent/20">
+<div class="text-[10px] text-mintLight/70">NDVI VALUE</div>
+<div class="text-base font-bold text-emeraldAccent mt-1" id="metric-ndvi">+0.81</div>
+<div class="text-[9px] text-white/50">Vigorous Growth</div>
+</div>
+<div class="glass-panel p-3 rounded-lg border-emeraldAccent/20">
+<div class="text-[10px] text-mintLight/70">NDWI (MOISTURE)</div>
+<div class="text-base font-bold text-emeraldAccent mt-1" id="metric-ndwi">+0.42</div>
+<div class="text-[9px] text-white/50">Hydrated Canopy</div>
+</div>
+<div class="glass-panel p-3 rounded-lg border-emeraldAccent/20">
+<div class="text-[10px] text-mintLight/70">RED-EDGE B05</div>
+<div class="text-base font-bold text-white mt-1" id="metric-rededge">2,410 DN</div>
+<div class="text-[9px] text-white/50">High Absorption</div>
+</div>
+<div class="glass-panel p-3 rounded-lg border-emeraldAccent/20">
+<div class="text-[10px] text-mintLight/70">LATENCY</div>
+<div class="text-base font-bold text-emeraldAccent mt-1">12.4 ms</div>
+<div class="text-[9px] text-white/50">NVIDIA TensorRT</div>
+</div>
+</div>
+<!-- Export / Test Action -->
+<div class="flex items-center gap-3 pt-2">
+<a href="satellite_image_classification.html" class="inline-flex items-center space-x-2 px-4 py-2.5 rounded-lg bg-emeraldAccent/15 hover:bg-emeraldAccent/25 text-emeraldAccent border border-emeraldAccent/30 font-mono text-xs transition-colors">
+<i class="w-3.5 h-3.5" data-lucide="scan"></i>
+<span>Launch Classifier Studio</span>
+</a>
+<a href="satellite_image_classification.html" class="inline-flex items-center space-x-2 px-4 py-2.5 rounded-lg glass-panel hover:border-emeraldAccent/40 text-white font-mono text-xs transition-colors">
+<i class="w-3.5 h-3.5 text-mintLight" data-lucide="terminal"></i>
+<span>Run Grad-CAM Explainability</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: InteractiveClassifierPreview -->
+<!-- BEGIN: BenchmarksAndMetrics -->
+<section class="py-24 bg-deepBg relative border-b border-forestEmerald/30" data-purpose="benchmarks-metrics" id="benchmarks">
+<div class="max-w-7xl mx-auto px-4 lg:px-8">
+<!-- Statistics Counters -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 text-center">
+<div class="glass-panel p-6 rounded-2xl border-emeraldAccent/20">
+<div class="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emeraldAccent to-mintLight font-mono">27,000</div>
+<div class="text-xs uppercase font-mono tracking-widest text-mintLight/80 mt-2">EuroSAT Patches</div>
+<p class="text-[11px] text-white/50 mt-1">Full 13-band MSI calibrated</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl border-emeraldAccent/20">
+<div class="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emeraldAccent to-mintLight font-mono">98.76%</div>
+<div class="text-xs uppercase font-mono tracking-widest text-mintLight/80 mt-2">Validation Top-1</div>
+<p class="text-[11px] text-white/50 mt-1">Cross-entropy test benchmark</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl border-emeraldAccent/20">
+<div class="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emeraldAccent to-mintLight font-mono">13 Bands</div>
+<div class="text-xs uppercase font-mono tracking-widest text-mintLight/80 mt-2">Multispectral Channels</div>
+<p class="text-[11px] text-white/50 mt-1">VNIR + SWIR Sentinel-2</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl border-emeraldAccent/20">
+<div class="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emeraldAccent to-mintLight font-mono">&lt;14ms</div>
+<div class="text-xs uppercase font-mono tracking-widest text-mintLight/80 mt-2">Inference Latency</div>
+<p class="text-[11px] text-white/50 mt-1">NVIDIA TensorRT edge pipeline</p>
+</div>
+</div>
+<!-- Comparative Architecture Table -->
+<div class="glass-panel rounded-2xl p-6 lg:p-8 border-emeraldAccent/25">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-emeraldAccent/20 gap-4">
+<div>
+<h3 class="text-xl font-bold text-white">Model Architecture Benchmarks (EuroSAT)</h3>
+<p class="text-xs text-mintLight/80 font-mono mt-1">Tested on 5-fold stratified cross-validation on Sentinel-2 MSI patches.</p>
+</div>
+<div class="flex items-center space-x-2 font-mono text-xs">
+<span class="px-2.5 py-1 rounded bg-forestMedium border border-emeraldAccent/40 text-emeraldAccent">CUDA 12.2</span>
+<span class="px-2.5 py-1 rounded bg-forestMedium border border-emeraldAccent/40 text-emeraldAccent">PyTorch 2.3</span>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto mt-6">
+<table class="w-full text-left font-mono text-xs text-mintLight/90">
+<thead>
+<tr class="border-b border-white/10 text-white font-semibold">
+<th class="py-3 px-4">Architecture</th>
+<th class="py-3 px-4">Input Resolution</th>
+<th class="py-3 px-4">Channels</th>
+<th class="py-3 px-4">Top-1 Accuracy</th>
+<th class="py-3 px-4">Top-5 Accuracy</th>
+<th class="py-3 px-4">Throughput (FPS)</th>
+<th class="py-3 px-4 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-forestMedium/30 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-white flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+<span>ResNet-50 Custom (GeoLand)</span>
+</td>
+<td class="py-3.5 px-4">64 × 64 px</td>
+<td class="py-3.5 px-4">13 (MSI)</td>
+<td class="py-3.5 px-4 font-bold text-emeraldAccent">98.76%</td>
+<td class="py-3.5 px-4">99.94%</td>
+<td class="py-3.5 px-4">420 FPS</td>
+<td class="py-3.5 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-emeraldAccent/20 text-emeraldAccent border border-emeraldAccent/30">Production SOTA</span>
+</td>
+</tr>
+<tr class="hover:bg-forestMedium/30 transition-colors">
+<td class="py-3.5 px-4 font-medium text-white flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-mintLight"></span>
+<span>EfficientNet-B0 (Edge)</span>
+</td>
+<td class="py-3.5 px-4">64 × 64 px</td>
+<td class="py-3.5 px-4">13 (MSI)</td>
+<td class="py-3.5 px-4 text-emerald-300">98.12%</td>
+<td class="py-3.5 px-4">99.88%</td>
+<td class="py-3.5 px-4">780 FPS</td>
+<td class="py-3.5 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-white/10 text-white border border-white/20">Edge Optimized</span>
+</td>
+</tr>
+<tr class="hover:bg-forestMedium/30 transition-colors">
+<td class="py-3.5 px-4 font-medium text-white/80">Vision Transformer (ViT-S/16)</td>
+<td class="py-3.5 px-4">224 × 224 px</td>
+<td class="py-3.5 px-4">3 (RGB)</td>
+<td class="py-3.5 px-4 text-white">96.84%</td>
+<td class="py-3.5 px-4">99.40%</td>
+<td class="py-3.5 px-4">145 FPS</td>
+<td class="py-3.5 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-white/5 text-white/60">Research</span>
+</td>
+</tr>
+<tr class="hover:bg-forestMedium/30 transition-colors">
+<td class="py-3.5 px-4 font-medium text-white/80">Baseline ResNet-18</td>
+<td class="py-3.5 px-4">64 × 64 px</td>
+<td class="py-3.5 px-4">3 (RGB)</td>
+<td class="py-3.5 px-4 text-white">94.30%</td>
+<td class="py-3.5 px-4">98.92%</td>
+<td class="py-3.5 px-4">610 FPS</td>
+<td class="py-3.5 px-4 text-right">
+<span class="px-2 py-0.5 rounded bg-white/5 text-white/60">Baseline</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- END: BenchmarksAndMetrics -->
+<!-- BEGIN: CallToActionCard -->
+<section class="py-20 relative bg-deepBg overflow-hidden" data-purpose="cta-section">
+<div class="max-w-7xl mx-auto px-4 lg:px-8">
+<div class="relative rounded-3xl overflow-hidden glass-panel-elevated p-8 sm:p-14 border border-emeraldAccent/40 shadow-glow-emerald">
+<!-- Glow accents -->
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-emeraldAccent/15 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-forestEmerald/40 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl">
+<div class="inline-flex items-center space-x-2 font-mono text-xs uppercase tracking-widest text-emeraldAccent mb-4">
+<i class="w-3.5 h-3.5" data-lucide="satellite"></i>
+<span>Ready for Global Earth Observation</span>
+</div>
+<h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Deploy Scalable Satellite Intelligence into Your Infrastructure
+          </h2>
+<p class="mt-4 text-base sm:text-lg text-emerald-100/80 leading-relaxed font-light">
+            Access pre-trained ResNet-50 weights, connect directly to European Space Agency Copernicus Hub, or deploy self-hosted Docker inference containers today.
+          </p>
+<div class="mt-8 flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center space-x-2 px-8 py-3.5 rounded-xl bg-emeraldAccent hover:bg-[#1ef28d] text-deepBg font-bold text-sm tracking-wide shadow-glow-emerald transition-all transform hover:scale-105" href="dashboard.html">
+<i class="w-4 h-4 fill-current" data-lucide="play"></i>
+<span>Launch GeoLand Web App</span>
+</a>
+<a class="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl glass-panel text-white hover:text-emeraldAccent hover:border-emeraldAccent/40 text-sm font-semibold transition-all" href="model_comparison.html">
+<i class="w-4 h-4 text-emeraldAccent" data-lucide="code"></i>
+<span>Model Comparison &amp; Benchmarks</span>
+</a>
+</div>
+<div class="mt-6 flex flex-wrap items-center gap-6 font-mono text-xs text-mintLight/70">
+<span class="flex items-center"><i class="w-3.5 h-3.5 text-emeraldAccent mr-1.5" data-lucide="check"></i> Sentinel-2 Level-2A Ready</span>
+<span class="flex items-center"><i class="w-3.5 h-3.5 text-emeraldAccent mr-1.5" data-lucide="check"></i> ONNX &amp; TensorRT Runtimes</span>
+<span class="flex items-center"><i class="w-3.5 h-3.5 text-emeraldAccent mr-1.5" data-lucide="check"></i> Zero Cloud Lock-in</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CallToActionCard -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-deepBg border-t border-forestEmerald/40 py-16 text-sm text-mintLight/70" data-purpose="footer" id="documentation">
+<div class="max-w-7xl mx-auto px-4 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+<!-- Brand Info -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-forestMedium border border-emeraldAccent/40 flex items-center justify-center text-emeraldAccent shadow-sm">
+<i class="w-4 h-4" data-lucide="satellite"></i>
+</div>
+<span class="text-xl font-bold tracking-tight text-white">
+              GeoLand <span class="text-emeraldAccent font-mono text-xs">AI</span>
+</span>
+</div>
+<p class="text-xs text-mintLight/80 max-w-sm leading-relaxed">
+            State-of-the-art Deep Learning classification framework for Sentinel-2 MSI and EuroSAT geospatial imagery, serving environmental planners, agricultural researchers, and urban developers worldwide.
+          </p>
+<div class="flex items-center space-x-3 text-xs font-mono text-emeraldAccent">
+<span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+<span>SYSTEM OPERATIONAL: All 13 Spectral Bands Normal</span>
+</div>
+</div>
+<!-- Col 1 -->
+<div class="space-y-3 font-mono text-xs">
+<h4 class="text-white font-semibold uppercase tracking-wider text-xs">Platform</h4>
+<ul class="space-y-2 text-mintLight/70">
+<li><a class="hover:text-emeraldAccent transition-colors" href="satellite_image_classification.html">Land-Use Classifier</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="multispectral_analysis.html">Multispectral Band Visualizer</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="robustness_analysis.html">Robustness Stress-Lab</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="experiments_reports.html">Automated Report Gen</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="satellite_image_classification.html">Grad-CAM Heatmaps</a></li>
+</ul>
+</div>
+<!-- Col 2 -->
+<div class="space-y-3 font-mono text-xs">
+<h4 class="text-white font-semibold uppercase tracking-wider text-xs">Geospatial Datasets</h4>
+<ul class="space-y-2 text-mintLight/70">
+<li><a class="hover:text-emeraldAccent transition-colors" href="image_summary.html">EuroSAT MSI Benchmark</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="multispectral_analysis.html">Copernicus Sentinel-2 L2A</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="error_confusion_analysis.html">Error &amp; Confusion Matrix</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="model_comparison.html">Model Zoo Comparison</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="model_management_settings.html">Runtime Settings</a></li>
+</ul>
+</div>
+<!-- Col 3 -->
+<div class="space-y-3 font-mono text-xs">
+<h4 class="text-white font-semibold uppercase tracking-wider text-xs">Resources</h4>
+<ul class="space-y-2 text-mintLight/70">
+<li><a class="hover:text-emeraldAccent transition-colors" href="model_comparison.html">Pretrained Model Weights</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="robustness_analysis.html">Robustness Stress Curves</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="error_confusion_analysis.html">Cost-of-Error Matrix</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="experiments_reports.html">Experiment Logs &amp; Metrics</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="image_summary.html">EuroSAT Dataset Summary</a></li>
+</ul>
+<li><a class="hover:text-emeraldAccent transition-colors" href="#">REST / WebSocket API</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="#">Research Paper (ArXiv)</a></li>
+<li><a class="hover:text-emeraldAccent transition-colors" href="#">Release Notes (v2.4.1)</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-mintLight/60 gap-4">
+<div>
+          © 2026 GeoLand AI • Earth Observation Technologies. Distributed under Open Geospatial License.
+        </div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-emeraldAccent" href="#">Privacy Policy</a>
+<a class="hover:text-emeraldAccent" href="#">Terms of Telemetry</a>
+<a class="hover:text-emeraldAccent" href="#">Security Audit</a>
+<a class="hover:text-emeraldAccent" href="#">Copernicus Hub Status</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- Lucide Icons Initialization -->
+<script data-purpose="lucide-icons-init">
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+<!-- Interactive Classifier Tabs JavaScript -->
+<script data-purpose="interactive-classifier-logic">
+    document.addEventListener('DOMContentLoaded', () => {
+      // Data dictionary for classes
+      const classMetadata = {
+        forest: {
+          title: "Forest Canopy & Dense Woodlands",
+          conf: "99.42% Confidence",
+          desc: "Predominant evergreen and deciduous dense woodland canopy characterized by extremely high NIR reflectance (Band 8) and steep Red-Edge NDVI slope (>0.74).",
+          p1: { name: "1. Forest", val: "99.42%", width: "99.4%" },
+          p2: { name: "2. Herbaceous Vegetation", val: "0.45%", width: "4.5%" },
+          p3: { name: "3. Permanent Crop", val: "0.13%", width: "1.3%" },
+          ndvi: "+0.81",
+          ndwi: "+0.42",
+          redEdge: "2,410 DN"
+        },
+        river: {
+          title: "River Systems & Aquatic Networks",
+          conf: "98.91% Confidence",
+          desc: "Open hydrological channels exhibiting strong water absorption across SWIR bands (B11, B12) and sharp contrast against surrounding riparian corridors.",
+          p1: { name: "1. River / Inland Water", val: "98.91%", width: "98.9%" },
+          p2: { name: "2. Sea / Lake", val: "0.82%", width: "8.2%" },
+          p3: { name: "3. Pasture Buffer", val: "0.27%", width: "2.7%" },
+          ndvi: "-0.24",
+          ndwi: "+0.89",
+          redEdge: "410 DN"
+        },
+        highway: {
+          title: "Highways & Major Transport Arteries",
+          conf: "97.85% Confidence",
+          desc: "Linear impervious surfaces with distinct asphalt/concrete spectral signatures in Visible and SWIR-1, paired with sharp edge detection responses.",
+          p1: { name: "1. Highway", val: "97.85%", width: "97.8%" },
+          p2: { name: "2. Industrial Strip", val: "1.65%", width: "16.5%" },
+          p3: { name: "3. Residential Access", val: "0.50%", width: "5.0%" },
+          ndvi: "+0.08",
+          ndwi: "-0.45",
+          redEdge: "1,120 DN"
+        },
+        residential: {
+          title: "Residential Clusters & Suburban Fabric",
+          conf: "98.34% Confidence",
+          desc: "Heterogeneous mix of tile rooftops, local road networks, and scattered private garden vegetation resulting in intermediate NDVI with periodic urban textures.",
+          p1: { name: "1. Residential", val: "98.34%", width: "98.3%" },
+          p2: { name: "2. Industrial Substation", val: "1.12%", width: "11.2%" },
+          p3: { name: "3. Highway Margin", val: "0.54%", width: "5.4%" },
+          ndvi: "+0.34",
+          ndwi: "-0.15",
+          redEdge: "1,680 DN"
+        },
+        agricultural: {
+          title: "Agricultural Farmland & Crop Fields",
+          conf: "99.10% Confidence",
+          desc: "Regular geometric parcel layout with periodic chlorophyll variations, strong Red-Edge slope (B05-B07), and active seasonal biomass accumulation.",
+          p1: { name: "1. Annual / Permanent Crop", val: "99.10%", width: "99.1%" },
+          p2: { name: "2. Pasture", val: "0.68%", width: "6.8%" },
+          p3: { name: "3. Herbaceous", val: "0.22%", width: "2.2%" },
+          ndvi: "+0.73",
+          ndwi: "+0.18",
+          redEdge: "2,190 DN"
+        },
+        industrial: {
+          title: "Industrial Plants & Commercial Complexes",
+          conf: "97.60% Confidence",
+          desc: "Large planar rooftops with metal/bitumen high albedo, wide paved logistics yards, and near-zero vegetative response across all spectral bands.",
+          p1: { name: "1. Industrial Buildings", val: "97.60%", width: "97.6%" },
+          p2: { name: "2. Residential", val: "1.80%", width: "18.0%" },
+          p3: { name: "3. Highway Infrastructure", val: "0.60%", width: "6.0%" },
+          ndvi: "+0.04",
+          ndwi: "-0.62",
+          redEdge: "950 DN"
+        }
+      };
+
+      const buttons = document.querySelectorAll('.class-tab-btn');
+      const titleEl = document.getElementById('class-title');
+      const confEl = document.getElementById('class-confidence');
+      const descEl = document.getElementById('class-desc');
+      
+      const p1Name = document.getElementById('pred-1-name');
+      const p1Val = document.getElementById('pred-1-val');
+      const p1Bar = document.getElementById('pred-1-bar');
+
+      const p2Name = document.getElementById('pred-2-name');
+      const p2Val = document.getElementById('pred-2-val');
+      const p2Bar = document.getElementById('pred-2-bar');
+
+      const p3Name = document.getElementById('pred-3-name');
+      const p3Val = document.getElementById('pred-3-val');
+      const p3Bar = document.getElementById('pred-3-bar');
+
+      const ndviEl = document.getElementById('metric-ndvi');
+      const ndwiEl = document.getElementById('metric-ndwi');
+      const redEdgeEl = document.getElementById('metric-rededge');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Reset styles
+          buttons.forEach(b => {
+            b.classList.remove('bg-emeraldAccent', 'text-deepBg', 'font-semibold');
+            b.classList.add('text-emerald-100/70', 'font-medium');
+          });
+
+          // Set active button
+          btn.classList.add('bg-emeraldAccent', 'text-deepBg', 'font-semibold');
+          btn.classList.remove('text-emerald-100/70', 'font-medium');
+
+          const key = btn.getAttribute('data-class');
+          const data = classMetadata[key];
+          if (!data) return;
+
+          // Update texts
+          titleEl.textContent = data.title;
+          confEl.textContent = data.conf;
+          descEl.textContent = data.desc;
+
+          p1Name.textContent = data.p1.name;
+          p1Val.textContent = data.p1.val;
+          p1Bar.style.width = data.p1.width;
+
+          p2Name.textContent = data.p2.name;
+          p2Val.textContent = data.p2.val;
+          p2Bar.style.width = data.p2.width;
+
+          p3Name.textContent = data.p3.name;
+          p3Val.textContent = data.p3.val;
+          p3Bar.style.width = data.p3.width;
+
+          ndviEl.textContent = data.ndvi;
+          ndwiEl.textContent = data.ndwi;
+          redEdgeEl.textContent = data.redEdge;
+        });
+      });
+    });
+  </script>
+</body></html>

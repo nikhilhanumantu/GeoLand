@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-bright":"#fbf9f0","error":"#ba1a1a","primary-container":"#0f3d2e","on-secondary-fixed":"#002204","tertiary-fixed-dim":"#a2d3a4","inverse-surface":"#30312b","on-error-container":"#93000a","outline-variant":"#c0c8c3","on-tertiary-container":"#7baa7e","on-secondary-fixed-variant":"#005312","on-secondary-container":"#217128","background":"#fbf9f0","on-primary-fixed-variant":"#234f3f","surface-container-high":"#eae8df","primary-fixed-dim":"#a2d1bb","surface-container":"#f0eee5","surface-container-low":"#f6f4eb","surface-tint":"#3b6756","on-tertiary-fixed":"#002109","secondary-fixed":"#a3f69c","primary-fixed":"#beedd7","surface-container-highest":"#e4e3da","tertiary-container":"#113e1c","on-primary-container":"#7ba894","tertiary-fixed":"#bdefbe","secondary-container":"#a0f399","on-primary":"#ffffff","on-background":"#1b1c17","error-container":"#ffdad6","inverse-on-surface":"#f3f1e8","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-tertiary-fixed-variant":"#24502c","surface":"#fbf9f0","on-surface":"#1b1c17","on-error":"#ffffff","secondary":"#1b6d24","tertiary":"#00270b","surface-variant":"#e4e3da","outline":"#717974","primary":"#00261a","surface-dim":"#dcdad1","secondary-fixed-dim":"#88d982","on-secondary":"#ffffff","inverse-primary":"#a2d1bb","on-primary-fixed":"#002116","on-surface-variant":"#414944"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter":"1.25rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem"},fontFamily:{"headline-md":["Manrope"],"headline-sm":["Manrope"],"tabular-metrics":["Inter"],"body-md":["Manrope"],"display-lg":["Manrope"],"body-sm":["Manrope"],"headline-lg":["Manrope"],"label-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Manrope"],"body-lg":["Manrope"]},fontSize:{"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"tabular-metrics":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">GeoLand AI</span><span class="font-label-md text-label-md text-outline leading-tight">Earth Observation ML</span></div></div><div class="px-space-md py-space-xs"><div class="h-px w-full bg-surface-container-high"></div></div><nav class="flex-1 px-space-sm py-space-xs space-y-space-xs overflow-y-auto" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r"><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dataset-explorer" href="dataset_explorer.html"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Explorer</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="classification" href="satellite_image_classification.html"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span>Classification</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multispectral-analysis" href="multispectral_analysis.html"><span class="material-symbols-outlined text-[20px]">layers</span><span>Multispectral Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="robustness-test" href="robustness_analysis.html"><span class="material-symbols-outlined text-[20px]">shield_with_heart</span><span>Robustness Test</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="image-summary" href="image_summary.html"><span class="material-symbols-outlined text-[20px]">collections</span><span>Image Summary</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="error-analysis" href="error_confusion_analysis.html"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Error Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-comparison" href="model_comparison.html"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span>Model Comparison</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="experiments-reports" href="experiments_reports.html"><span class="material-symbols-outlined text-[20px]">science</span><span>Experiments &amp; Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-management-and-settings" href="model_management_settings.html"><span class="material-symbols-outlined text-[20px]">settings</span><span>Model Management &amp; Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between shadow-[0_1px_4px_rgba(15,61,46,0.04)]"><div class="flex items-center gap-space-xs min-w-0"><div class="relative flex-shrink-0"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="min-w-0 pl-space-xs"><p class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Dr. Elena Rostova</p><p class="font-label-md text-label-md text-outline truncate leading-tight">Lead Geospatial Scientist</p></div></div><button class="text-outline hover:text-on-surface transition-colors p-space-xs rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md min-w-0"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex items-center gap-space-xs font-body-md text-body-md text-outline-variant"><span class="text-on-surface-variant font-label-lg text-label-lg font-medium">GeoLand AI</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-primary font-headline-sm text-headline-sm font-semibold tracking-tight">Intelligent Land Observation</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">Sentinel-2 &amp; EuroSAT Ready</span></div><div class="flex items-center gap-space-xs"><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button><a href="satellite_image_classification.html" class="px-space-md py-1.5 bg-primary text-on-primary rounded font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-colors flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">satellite_alt</span><span>Run Inference</span></a></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Interactive Navigation Highlight State Sync Script -->
+<script>
+    (function syncNav() {
+      const activeLink = document.querySelector('aside nav a[data-path="classification"]');
+      if (activeLink) {
+        document.querySelectorAll('aside nav a').forEach(el => {
+          el.className = "flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors";
+        });
+        activeLink.className = "flex items-center gap-space-sm px-space-md py-space-xs rounded font-body-md text-body-md transition-colors bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r";
+      }
+    })();
+  </script>
+<!-- Page Header matching exact reference design -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-lg">
+<div class="flex flex-col">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Satellite Image Classification</h1>
+<p class="font-body-md text-body-md text-outline">Upload a satellite image and classify its land-use category</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-full text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Model: ResNet-50 (EuroSAT)</span>
+</div>
+<button class="p-space-xs text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="Classification History" type="button">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+<button class="p-space-xs text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="Settings" type="button">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Dual-Column Analysis Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Satellite Imagery Viewer & Primary Action Controls -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Main Visual Viewport Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_2px_8px_-2px_rgba(15,61,46,0.06)] p-space-md flex flex-col">
+<!-- Viewer Topbar -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">satellite_alt</span>
+<span class="font-label-lg text-label-lg text-primary">Tile EuroSAT_RGB_Hwy_4102.tif</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-outline px-space-xs py-0.5 bg-surface-container rounded">Sentinel-2 MSI</span>
+<span class="font-label-md text-label-md text-outline px-space-xs py-0.5 bg-surface-container rounded">10m / px</span>
+</div>
+</div>
+<!-- Imagery Container with Reticle, Coordinate Overlays & Drag-and-Drop Dropzone -->
+<div class="relative w-full aspect-square md:aspect-[4/3] rounded-lg overflow-hidden bg-surface-container shadow-inner flex items-center justify-center group cursor-pointer" id="image-dropzone" title="Click or drag-and-drop an image here to classify">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" data-alt="Ultra high-resolution aerial satellite photograph centered on a multi-lane concrete curved highway interchange surrounded by verdant European agricultural plots, dense patches of green trees, sharp asphalt roads with white line markings, natural daylight, Earth observation aesthetic, crisp overhead orthophoto perspective matching EuroSAT remote sensing benchmark dataset." id="classified-satellite-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA7w2agW04n3DIfCoPd8lWCVb2I0qC28H_rMcp_IbMQTNGxEPvoAEOOk8PaJcPFUqJghkyVOsYD5u18huTvFltVDMw3lKmk6N1JYi6R3kDh97_5x6I37CyJdjlXQSgmOEYElT7Kt5pUfWQ2rVj6ZeMTH1tHXeO_0z4LvSDWUfcJ_YRh2NYEKmkGYUTeHhNwRHkeNvbQI6_ZwkoubvlMO2XClA-EDF6oojbYSwTe_7q"/>
+<!-- Dropzone Drag Hover Overlay -->
+<div id="dropzone-drag-overlay" class="absolute inset-0 bg-primary/80 backdrop-blur-sm border-2 border-dashed border-secondary-fixed flex flex-col items-center justify-center text-white z-20 hidden pointer-events-none transition-all">
+<span class="material-symbols-outlined text-[48px] text-secondary-fixed animate-bounce">cloud_upload</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-2">Drop Satellite Image Here</span>
+<span class="font-label-md text-xs text-mintLight/80">Supports JPG, PNG, TIFF, GeoTIFF</span>
+</div>
+<!-- HUD Telemetry & Bounding Crosshairs -->
+<div class="absolute inset-0 pointer-events-none p-space-md flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="bg-primary/80 backdrop-blur-md px-space-sm py-1 rounded text-on-primary font-tabular-metrics text-label-md flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-ping"></span>
+<span id="overlay-coordinates">LAT 48.1374° N  |  LON 11.5755° E</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest/85 backdrop-blur-md px-2 py-1 rounded text-primary text-label-md font-medium shadow-sm">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+<span>640m × 640m</span>
+</div>
+</div>
+<!-- Optical Center Reticle Overlay -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-32 h-32 rounded-lg border-2 border-secondary/70 relative">
+<span class="absolute -top-3 left-2 font-label-md text-label-md bg-secondary text-on-secondary px-1.5 rounded text-[10px]">ROI TARGET</span>
+<span class="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-0.5 bg-secondary"></span>
+<span class="absolute top-1/2 right-0 -translate-y-1/2 w-2 h-0.5 bg-secondary"></span>
+<span class="absolute top-0 left-1/2 -translate-x-1/2 h-2 w-0.5 bg-secondary"></span>
+<span class="absolute bottom-0 left-1/2 -translate-x-1/2 h-2 w-0.5 bg-secondary"></span>
+</div>
+</div>
+<!-- Band Tag Footer inside Viewport -->
+<div class="flex items-center justify-between">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-1 rounded-md text-on-surface font-label-md text-label-md flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">palette</span>
+<span>RGB Composite (B04, B03, B02)</span>
+</div>
+<div id="viewport-conf-badge" class="bg-primary-container text-on-primary-container px-space-sm py-1 rounded-md font-tabular-metrics text-label-md shadow-sm">
+Confidence Level: 98.27%
+</div>
+</div>
+</div>
+</div>
+<!-- View Mode Switcher Layer Row -->
+<div class="mt-3 flex items-center justify-between pb-2 border-b border-surface-container-high text-xs font-mono">
+<span class="text-outline font-semibold">Observation Layer:</span>
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-0.5">
+<button id="view-mode-optical" class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary font-bold shadow-xs cursor-pointer transition-all" type="button">Satellite Optical</button>
+<button id="view-mode-segmentation" class="px-2.5 py-1 rounded text-outline hover:text-primary cursor-pointer transition-all" type="button">Land-Cover Map</button>
+<button id="view-mode-gradcam" class="px-2.5 py-1 rounded text-outline hover:text-primary cursor-pointer transition-all" type="button">Grad-CAM Heatmap</button>
+</div>
+</div>
+<!-- Sample Switcher Carousel Pill Row -->
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Quick Benchmark Samples</span>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1" id="sample-buttons-row">
+<button class="sample-btn px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md flex items-center gap-1 transition-all shadow-sm" data-sample-class="Highway" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Sample #1 (Highway)</span>
+</button>
+<button class="sample-btn px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors" data-sample-class="River" type="button">
+<span>Sample #2 (River)</span>
+</button>
+<button class="sample-btn px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors" data-sample-class="Forest" type="button">
+<span>Sample #3 (Forest)</span>
+</button>
+<button class="sample-btn px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors" data-sample-class="Residential" type="button">
+<span>Sample #4 (Residential)</span>
+</button>
+<button class="sample-btn px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors" data-sample-class="Industrial" type="button">
+<span>Sample #5 (Industrial)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Button Group - Strictly Matching Layout in Row 2, Column 2 -->
+<input type="file" id="image-file-input" accept="image/*" class="hidden"/>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<!-- 1. Upload Image (Primary Green Button) -->
+<button id="btn-upload-image" class="h-11 px-space-md bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs hover:bg-primary transition-all shadow-sm active:scale-[0.99] group cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-y-0.5">upload</span>
+<span>Upload Image</span>
+</button>
+<!-- 2. Use Sample (Crisp White/Elevated Button) -->
+<button id="btn-use-sample" class="h-11 px-space-md bg-surface-container-lowest text-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs hover:bg-surface-container hover:text-primary transition-all shadow-[0_1px_4px_rgba(15,61,46,0.06)] active:scale-[0.99] cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px] text-outline">cached</span>
+<span>Use Sample</span>
+</button>
+<!-- 3. Classify (Emerald / Vibrant Accent Action) -->
+<button id="btn-classify" class="h-11 px-space-md bg-secondary text-on-secondary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs hover:bg-on-secondary-fixed-variant transition-all shadow-md active:scale-[0.99] group cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Classify</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Prediction Result Card & Analysis Breakdown -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Prediction Result Main Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_2px_8px_-2px_rgba(15,61,46,0.06)] p-space-lg flex flex-col gap-space-md">
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-4 bg-secondary rounded-full"></span>
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">Prediction Result</h2>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold bg-secondary-container px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Optimal Match</span>
+</span>
+</div>
+<!-- Prominent Result Banner with Icon Badge & Confidence -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<!-- Category Symbol Icon Card -->
+<div class="w-14 h-14 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[32px]" id="prediction-icon">add_road</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider" id="prediction-category-label">Infrastructure</span>
+<span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight" id="prediction-class-name">Highway</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Certainty</span>
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-secondary font-extrabold leading-none tracking-tight" id="prediction-certainty-val">98.27</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">%</span>
+</div>
+</div>
+</div>
+<!-- Top-3 Predictions Distribution Progress Stack -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-primary">Top-3 Predictions</span>
+<span class="font-label-md text-label-md text-outline">Softmax Probability</span>
+</div>
+<!-- Rank 1 -->
+<div class="flex flex-col gap-1.5 p-space-sm rounded-lg bg-surface-container-low/70 transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-md text-[10px] font-bold flex items-center justify-center">1</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold" id="top3-rank-1-name">Highway</span>
+</div>
+<span class="font-tabular-metrics text-tabular-metrics text-primary font-bold" id="top3-rank-1-pct">98.27%</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-highest overflow-hidden p-0.5">
+<div class="h-full rounded-full bg-primary-container transition-all duration-700 ease-out" id="top3-rank-1-bar" style="width: 98.27%"></div>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="flex flex-col gap-1.5 p-space-sm rounded-lg hover:bg-surface-container-low transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-[10px] font-semibold flex items-center justify-center">2</span>
+<span class="font-body-md text-body-md text-on-surface" id="top3-rank-2-name">Residential</span>
+</div>
+<span class="font-tabular-metrics text-tabular-metrics text-on-surface-variant" id="top3-rank-2-pct">1.21%</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-secondary-fixed-dim transition-all duration-700 ease-out" id="top3-rank-2-bar" style="width: 4.8%"></div>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex flex-col gap-1.5 p-space-sm rounded-lg hover:bg-surface-container-low transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-[10px] font-semibold flex items-center justify-center">3</span>
+<span class="font-body-md text-body-md text-on-surface" id="top3-rank-3-name">Industrial</span>
+</div>
+<span class="font-tabular-metrics text-tabular-metrics text-on-surface-variant" id="top3-rank-3-pct">0.42%</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-outline-variant transition-all duration-700 ease-out" id="top3-rank-3-bar" style="width: 2.2%"></div>
+</div>
+</div>
+</div>
+<!-- Technical Telemetry & Inference Footprint Specification -->
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-xs mt-space-xs">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider font-semibold">Inference Metadata</span>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Inference Latency</span>
+<span class="font-tabular-metrics text-tabular-metrics text-primary font-bold" id="meta-latency">14.2 ms (CPU)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Model Backbone</span>
+<span class="font-tabular-metrics text-tabular-metrics text-primary font-bold" id="meta-model">convnext_tiny</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Input Dimensions</span>
+<span class="font-tabular-metrics text-tabular-metrics text-primary font-bold" id="meta-dimensions">64 × 64 (224 resized)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Grad-CAM Salience</span>
+<span class="font-tabular-metrics text-tabular-metrics text-secondary font-bold" id="meta-salience">Linear Corridors</span>
+</div>
+</div>
+</div>
+<!-- Card Footprint Auxiliary Buttons -->
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button id="btn-download-result" class="flex-1 py-2 px-space-sm bg-surface-container-high hover:bg-surface-container-highest text-primary rounded-lg font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1.5 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Download Result</span>
+</button>
+<button id="btn-gradcam-heatmap" class="py-2 px-space-sm bg-surface-container-high hover:bg-surface-container-highest text-primary rounded-lg font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 cursor-pointer" title="Grad-CAM Activation Map" type="button">
+<span class="material-symbols-outlined text-[16px]">4k</span>
+<span id="btn-gradcam-text">Heatmap</span>
+</button>
+<button id="btn-share-result" class="py-2 px-space-sm bg-surface-container-high hover:bg-surface-container-highest text-primary rounded-lg font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 cursor-pointer" title="Share Analysis" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+</button>
+</div>
+<!-- AI Restore & Upscale Button -->
+<div class="pt-space-xs">
+<button id="btn-restore-image" class="w-full py-2 px-space-sm bg-tertiary-container hover:bg-tertiary text-on-tertiary-container hover:text-on-tertiary rounded-lg font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer" title="AI Restore & Upscale via Hugging Face GFPGAN" type="button">
+<span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+<span>AI Restore &amp; Upscale (HF GFPGAN)</span>
+</button>
+</div>
+</div>
+<!-- Kaggle 99% Accuracy SOTA Model Card (edumisvieramartin) -->
+<div id="kaggle-model-card" class="bg-surface-container-lowest rounded-xl shadow-[0_2px_8px_-2px_rgba(15,61,46,0.06)] p-space-md border border-secondary/20 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Kaggle 99% Accuracy Model</span>
+<span class="text-[11px] text-outline">Kernel: edumisvieramartin / satellite-image-classif-99-accuracy</span>
+</div>
+</div>
+<span id="kaggle-pred-badge" class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-xs font-bold flex items-center gap-1">
+<span id="kaggle-pred-emoji">🛰️</span>
+<span id="kaggle-pred-class">Analyzing...</span>
+</span>
+</div>
+
+<!-- 4-Class Probability Breakdown -->
+<div class="grid grid-cols-4 gap-2 pt-1" id="kaggle-class-bars">
+<div class="bg-surface-container-low p-2 rounded-lg text-center">
+<div class="text-[10px] text-outline font-medium">☁️ Cloudy</div>
+<div id="kaggle-pct-cloudy" class="font-tabular-metrics font-bold text-xs text-primary pt-0.5">--%</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg text-center">
+<div class="text-[10px] text-outline font-medium">🏜️ Desert</div>
+<div id="kaggle-pct-desert" class="font-tabular-metrics font-bold text-xs text-primary pt-0.5">--%</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg text-center">
+<div class="text-[10px] text-outline font-medium">🌿 Green Area</div>
+<div id="kaggle-pct-green" class="font-tabular-metrics font-bold text-xs text-secondary pt-0.5">--%</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg text-center">
+<div class="text-[10px] text-outline font-medium">🌊 Water</div>
+<div id="kaggle-pct-water" class="font-tabular-metrics font-bold text-xs text-tertiary pt-0.5">--%</div>
+</div>
+</div>
+</div>
+<!-- Multispectral Spectral Index Mini Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_2px_8px_-2px_rgba(15,61,46,0.06)] p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">ssid_chart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Normalized Difference (NDVI / NDBI)</span>
+<span class="font-body-sm text-body-sm text-outline">Built-up index correlates with paved highway network</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="text-right">
+<div class="font-tabular-metrics text-label-md text-primary font-bold">NDBI: +0.44</div>
+<div class="font-tabular-metrics text-[10px] text-outline">NDVI: +0.12</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- BEGIN: Deep Geospatial Scene Decomposition Panel -->
+<div id="deep-geospatial-panel" class="mt-space-lg bg-surface-container-lowest rounded-xl p-space-lg shadow-sm border border-surface-container-high flex flex-col gap-space-md">
+<!-- Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-sm border-b border-surface-container-high gap-2">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">travel_explore</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Deep Geospatial Scene Decomposition &amp; Spatial Multi-Zone Analysis</h2>
+<p class="font-body-sm text-body-sm text-outline">Multi-region spectral decomposition, land-cover segmentation, and false-color radiometric analysis</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-container text-secondary text-xs font-mono font-bold flex items-center gap-1 self-start sm:self-auto">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span id="deep-analysis-badge">Multi-Terrain Scene Mode Active</span>
+</span>
+</div>
+
+<!-- Composite Scene Alert Banner -->
+<div id="composite-scene-banner" class="p-space-md rounded-xl bg-surface-container-low border border-secondary/30 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px] flex-shrink-0 mt-0.5">satellite</span>
+<div class="flex flex-col text-xs leading-relaxed">
+<span class="font-bold text-primary font-headline-sm text-[14px]">Multi-Terrain Landscape Scene Detected</span>
+<span class="text-on-surface-variant mt-0.5">This satellite image represents a wide heterogeneous landscape containing multiple distinct ecological sectors across ocean, estuarine waterways, and urban/dry land. Rather than forcing a single label onto a 50 km scene, spatial decomposition below accurately isolates each geographical zone.</span>
+</div>
+</div>
+
+<!-- Scene Composition Summary Progress Bar -->
+<div class="flex flex-col gap-2 p-space-md rounded-xl bg-surface-container-low/60 border border-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Overall Scene Composition Breakdown</span>
+<span class="text-xs font-mono text-outline">Spectral Pixel Ratio</span>
+</div>
+<div class="w-full h-4 rounded-full bg-surface-container-highest overflow-hidden flex shadow-inner" id="composition-progress-bar">
+<div id="comp-bar-ocean" style="width: 41.3%; background-color: #00e5ff;" title="Coastal Ocean & Sea (41.3%)" class="h-full transition-all duration-700"></div>
+<div id="comp-bar-estuary" style="width: 21.6%; background-color: #00897b;" title="Estuaries, Lagoons & Waterways (21.6%)" class="h-full transition-all duration-700"></div>
+<div id="comp-bar-urban" style="width: 54.4%; background-color: #ff7043;" title="Urban Settlements & Infrastructure (54.4%)" class="h-full transition-all duration-700"></div>
+<div id="comp-bar-veg" style="width: 12.8%; background-color: #4caf50;" title="Vegetation Canopy & Open Land (12.8%)" class="h-full transition-all duration-700"></div>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-xs font-mono pt-1 text-on-surface" id="composition-legend">
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full" style="background-color: #00e5ff;"></span><span class="font-semibold text-primary">Coastal Ocean &amp; Sea:</span> <span id="comp-pct-ocean" class="text-secondary font-bold">41.3%</span></div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full" style="background-color: #00897b;"></span><span class="font-semibold text-primary">Estuaries &amp; Lagoons:</span> <span id="comp-pct-estuary" class="text-secondary font-bold">21.6%</span></div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full" style="background-color: #ff7043;"></span><span class="font-semibold text-primary">Urban Settlements &amp; Dry Land:</span> <span id="comp-pct-urban" class="text-secondary font-bold">54.4%</span></div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full" style="background-color: #4caf50;"></span><span class="font-semibold text-primary">Vegetation &amp; Open Land:</span> <span id="comp-pct-veg" class="text-secondary font-bold">12.8%</span></div>
+</div>
+</div>
+
+<!-- The 3 Geo-Zone Detailed Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md" id="zones-card-container">
+<!-- Zone 1: Turquoise / Blue Area -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container-high flex flex-col justify-between hover:border-secondary transition-all">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#00e5ff]/20 text-[#006064] border border-[#00e5ff]/40">ZONE 01: COASTAL</span>
+<span class="text-xs font-mono font-bold text-secondary" id="zone-1-conf">94.5% Conf</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">1. Turquoise / Blue Area (Left)</h3>
+<div class="mt-2 text-xs font-semibold text-[#00838f] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">waves</span>
+<span id="zone-1-title">Ocean or Coastal Water (SeaLake)</span>
+</div>
+<p class="text-xs text-outline mt-2 leading-relaxed" id="zone-1-desc">
+Open ocean and coastal water along the shoreline. High reflectance in cyan-blue wavelengths (450nm-520nm) indicates shallow bathymetry and littoral sediment suspension along the outer coast.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high text-[11px] font-mono text-outline flex justify-between">
+<span>Region: West / Coast</span>
+<span class="text-primary font-bold" id="zone-1-coverage">Coverage: ~41.3%</span>
+</div>
+</div>
+
+<!-- Zone 2: Dark Green / Black Areas -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container-high flex flex-col justify-between hover:border-secondary transition-all">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#00897b]/20 text-[#004d40] border border-[#00897b]/40">ZONE 02: ESTUARY</span>
+<span class="text-xs font-mono font-bold text-secondary" id="zone-2-conf">91.8% Conf</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">2. Dark Green / Black Areas (Center)</h3>
+<div class="mt-2 text-xs font-semibold text-[#00897b] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">water</span>
+<span id="zone-2-title">Estuaries, Lagoons &amp; Tidal Channels (River)</span>
+</div>
+<p class="text-xs text-outline mt-2 leading-relaxed" id="zone-2-desc">
+Inland water bodies, estuaries, lagoons, tidal channels, and wetland depressions. Low visible reflectance and steep absorption across infrared (SWIR/NIR) distinguish deep protected water and wetland margins.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high text-[11px] font-mono text-outline flex justify-between">
+<span>Region: Central Basin</span>
+<span class="text-primary font-bold" id="zone-2-coverage">Coverage: ~21.6%</span>
+</div>
+</div>
+
+<!-- Zone 3: Brown / Reddish Areas -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container-high flex flex-col justify-between hover:border-secondary transition-all">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#ff7043]/20 text-[#bf360c] border border-[#ff7043]/40">ZONE 03: URBAN / SOIL</span>
+<span class="text-xs font-mono font-bold text-secondary" id="zone-3-conf">92.4% Conf</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">3. Brown / Reddish Areas (Right)</h3>
+<div class="mt-2 text-xs font-semibold text-[#bf360c] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">domain</span>
+<span id="zone-3-title">Settlements, Infrastructure &amp; Dry Land</span>
+</div>
+<p class="text-xs text-outline mt-2 leading-relaxed" id="zone-3-desc">
+Mainland urban settlements, private residential clusters, transport infrastructure (bridges/roads), and dry agricultural parcels. Reddish appearance is characteristic of false-color CIR satellite composites or high-albedo tile/soil reflectance.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high text-[11px] font-mono text-outline flex justify-between">
+<span>Region: East / Mainland</span>
+<span class="text-primary font-bold" id="zone-3-coverage">Coverage: ~54.4%</span>
+</div>
+</div>
+</div>
+
+<!-- Radiometric & Spectral Insight Callout -->
+<div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between text-xs font-mono text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">info</span>
+<span><strong>Radiometric Insight:</strong> False-color infrared (CIR) composite translates NIR reflectance to reddish hues, water absorption to dark navy/black, and shallow marine albedo to turquoise cyan.</span>
+</div>
+<span class="text-outline">Sentinel-2 MSI Calibrated</span>
+</div>
+</div>
+<!-- END: Deep Geospatial Scene Decomposition Panel -->
+</div></main></div><script src="api.js"></script></body></html>

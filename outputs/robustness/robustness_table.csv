@@ -1,0 +1,28 @@
+Model,Corruption,Severity,Accuracy,Acc_Drop
+resnet50,Clean,0.0,0.5507,0.0
+resnet50,Gaussian Blur,sigma=1.0,0.3173,0.2333
+resnet50,Gaussian Blur,sigma=2.0,0.1733,0.3773
+resnet50,Gaussian Blur,sigma=3.0,0.1133,0.4373
+resnet50,Gaussian Blur,sigma=5.0,0.1,0.4507
+resnet50,Gaussian Noise,std=0.05,0.208,0.3427
+resnet50,Gaussian Noise,std=0.1,0.1227,0.428
+resnet50,Gaussian Noise,std=0.2,0.1027,0.448
+resnet50,Gaussian Noise,std=0.3,0.1,0.4507
+efficientnet_b0,Clean,0.0,0.4253,0.0
+efficientnet_b0,Gaussian Blur,sigma=1.0,0.3973,0.028
+efficientnet_b0,Gaussian Blur,sigma=2.0,0.2493,0.176
+efficientnet_b0,Gaussian Blur,sigma=3.0,0.188,0.2373
+efficientnet_b0,Gaussian Blur,sigma=5.0,0.1187,0.3067
+efficientnet_b0,Gaussian Noise,std=0.05,0.104,0.3213
+efficientnet_b0,Gaussian Noise,std=0.1,0.1747,0.2507
+efficientnet_b0,Gaussian Noise,std=0.2,0.112,0.3133
+efficientnet_b0,Gaussian Noise,std=0.3,0.104,0.3213
+convnext_tiny,Clean,0.0,0.932,0.0
+convnext_tiny,Gaussian Blur,sigma=1.0,0.8787,0.0533
+convnext_tiny,Gaussian Blur,sigma=2.0,0.688,0.244
+convnext_tiny,Gaussian Blur,sigma=3.0,0.4973,0.4347
+convnext_tiny,Gaussian Blur,sigma=5.0,0.3093,0.6227
+convnext_tiny,Gaussian Noise,std=0.05,0.6347,0.2973
+convnext_tiny,Gaussian Noise,std=0.1,0.412,0.52
+convnext_tiny,Gaussian Noise,std=0.2,0.1907,0.7413
+convnext_tiny,Gaussian Noise,std=0.3,0.1267,0.8053

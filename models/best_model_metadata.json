@@ -1,0 +1,17 @@
+{
+  "best_model_name": "convnext_tiny",
+  "best_val_accuracy": 0.9507,
+  "selected_at": "2026-11-21 10:19:10",
+  "classes": [
+    "AnnualCrop",
+    "Forest",
+    "HerbaceousVegetation",
+    "Highway",
+    "Industrial",
+    "Pasture",
+    "PermanentCrop",
+    "Residential",
+    "River",
+    "SeaLake"
+  ]
+}

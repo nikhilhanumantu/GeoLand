@@ -1,0 +1,4 @@
+Model,EuroSAT Test Acc,UC Merced Transfer Acc,Domain Gap Drop,Macro Precision,Macro Recall,Macro F1,Avg Confidence,Uncertain Pct,Latency (ms)
+resnet50,0.8547,0.2792,0.5755,0.3148,0.2912,0.2508,0.4964,69.17,22.25
+efficientnet_b0,0.852,0.2033,0.6487,0.2126,0.1988,0.163,0.5943,53.75,9.69
+convnext_tiny,0.9333,0.4,0.5333,0.3982,0.4113,0.3522,0.6444,41.75,32.35

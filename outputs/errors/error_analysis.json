@@ -1,0 +1,417 @@
+{
+  "model_name": "convnext_tiny",
+  "total_test_samples": 750,
+  "total_misclassifications": 50,
+  "overall_error_rate_pct": 6.67,
+  "high_impact_errors_count": 17,
+  "high_impact_error_pct": 34.0,
+  "top_10_confused_pairs": [
+    {
+      "pair": "AnnualCrop <-> Highway",
+      "count": 6,
+      "directions": {
+        "AnnualCrop -> Highway": 5,
+        "Highway -> AnnualCrop": 1
+      }
+    },
+    {
+      "pair": "HerbaceousVegetation <-> PermanentCrop",
+      "count": 6,
+      "directions": {
+        "HerbaceousVegetation -> PermanentCrop": 4,
+        "PermanentCrop -> HerbaceousVegetation": 2
+      }
+    },
+    {
+      "pair": "Highway <-> River",
+      "count": 6,
+      "directions": {
+        "River -> Highway": 6
+      }
+    },
+    {
+      "pair": "Industrial <-> Residential",
+      "count": 4,
+      "directions": {
+        "Residential -> Industrial": 4
+      }
+    },
+    {
+      "pair": "River <-> SeaLake",
+      "count": 4,
+      "directions": {
+        "SeaLake -> River": 4
+      }
+    },
+    {
+      "pair": "Highway <-> PermanentCrop",
+      "count": 3,
+      "directions": {
+        "PermanentCrop -> Highway": 3
+      }
+    },
+    {
+      "pair": "HerbaceousVegetation <-> SeaLake",
+      "count": 3,
+      "directions": {
+        "SeaLake -> HerbaceousVegetation": 3
+      }
+    },
+    {
+      "pair": "Forest <-> Pasture",
+      "count": 3,
+      "directions": {
+        "Forest -> Pasture": 2,
+        "Pasture -> Forest": 1
+      }
+    },
+    {
+      "pair": "AnnualCrop <-> PermanentCrop",
+      "count": 2,
+      "directions": {
+        "AnnualCrop -> PermanentCrop": 2
+      }
+    },
+    {
+      "pair": "Pasture <-> PermanentCrop",
+      "count": 2,
+      "directions": {
+        "Pasture -> PermanentCrop": 2
+      }
+    }
+  ],
+  "worst_confident_errors": [
+    {
+      "test_index": 341,
+      "dataset_index": 18069,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\PermanentCrop\\PermanentCrop_62.jpg",
+      "true_class": "PermanentCrop",
+      "true_category": "Agricultural / Orchards",
+      "pred_class": "HerbaceousVegetation",
+      "pred_category": "Natural / Open Land",
+      "confidence": 0.9268,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 259,
+      "dataset_index": 25838,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\SeaLake\\SeaLake_2662.jpg",
+      "true_class": "SeaLake",
+      "true_category": "Aquatic / Waterbody",
+      "pred_class": "Pasture",
+      "pred_category": "Agricultural / Grazing",
+      "confidence": 0.9069,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 640,
+      "dataset_index": 22990,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_2349.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.9044,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 419,
+      "dataset_index": 21608,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_1104.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8994,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 281,
+      "dataset_index": 26397,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\SeaLake\\SeaLake_465.jpg",
+      "true_class": "SeaLake",
+      "true_category": "Aquatic / Waterbody",
+      "pred_class": "HerbaceousVegetation",
+      "pred_category": "Natural / Open Land",
+      "confidence": 0.8987,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 265,
+      "dataset_index": 1139,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_2023.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8817,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 22,
+      "dataset_index": 1998,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_2798.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8729,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 429,
+      "dataset_index": 7272,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\HerbaceousVegetation\\HerbaceousVegetation_2152.jpg",
+      "true_class": "HerbaceousVegetation",
+      "true_category": "Natural / Open Land",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8677,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 487,
+      "dataset_index": 25801,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\SeaLake\\SeaLake_2629.jpg",
+      "true_class": "SeaLake",
+      "true_category": "Aquatic / Waterbody",
+      "pred_class": "River",
+      "pred_category": "Aquatic / Waterway",
+      "confidence": 0.8603,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 469,
+      "dataset_index": 21460,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\Residential\\Residential_972.jpg",
+      "true_class": "Residential",
+      "true_category": "Urban / Built-up",
+      "pred_class": "Industrial",
+      "pred_category": "Urban / Industrial",
+      "confidence": 0.8524,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 96,
+      "dataset_index": 1076,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_1968.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8314,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 136,
+      "dataset_index": 25582,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\SeaLake\\SeaLake_2431.jpg",
+      "true_class": "SeaLake",
+      "true_category": "Aquatic / Waterbody",
+      "pred_class": "River",
+      "pred_category": "Aquatic / Waterway",
+      "confidence": 0.8199,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 732,
+      "dataset_index": 23078,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_2428.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8171,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 519,
+      "dataset_index": 1759,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_2582.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "HerbaceousVegetation",
+      "pred_category": "Natural / Open Land",
+      "confidence": 0.8043,
+      "high_impact_error": false
+    },
+    {
+      "test_index": 378,
+      "dataset_index": 24808,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\SeaLake\\SeaLake_1735.jpg",
+      "true_class": "SeaLake",
+      "true_category": "Aquatic / Waterbody",
+      "pred_class": "River",
+      "pred_category": "Aquatic / Waterway",
+      "confidence": 0.7891,
+      "high_impact_error": false
+    }
+  ],
+  "high_impact_error_samples": [
+    {
+      "test_index": 22,
+      "dataset_index": 1998,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_2798.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8729,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 65,
+      "dataset_index": 2729,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_755.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.532,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 74,
+      "dataset_index": 22886,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_2255.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Industrial",
+      "pred_category": "Urban / Industrial",
+      "confidence": 0.6532,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 85,
+      "dataset_index": 18251,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\PermanentCrop\\PermanentCrop_784.jpg",
+      "true_class": "PermanentCrop",
+      "true_category": "Agricultural / Orchards",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.5551,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 96,
+      "dataset_index": 1076,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_1968.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8314,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 99,
+      "dataset_index": 1154,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_2037.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.485,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 104,
+      "dataset_index": 17938,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\PermanentCrop\\PermanentCrop_501.jpg",
+      "true_class": "PermanentCrop",
+      "true_category": "Agricultural / Orchards",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.6712,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 233,
+      "dataset_index": 23853,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_876.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.776,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 265,
+      "dataset_index": 1139,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\AnnualCrop\\AnnualCrop_2023.jpg",
+      "true_class": "AnnualCrop",
+      "true_category": "Agricultural",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8817,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 419,
+      "dataset_index": 21608,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_1104.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8994,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 429,
+      "dataset_index": 7272,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\HerbaceousVegetation\\HerbaceousVegetation_2152.jpg",
+      "true_class": "HerbaceousVegetation",
+      "true_category": "Natural / Open Land",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.8677,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 550,
+      "dataset_index": 21797,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_1275.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.6755,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 569,
+      "dataset_index": 21943,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_1406.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.7619,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 640,
+      "dataset_index": 22990,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\River\\River_2349.jpg",
+      "true_class": "River",
+      "true_category": "Aquatic / Waterway",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.9044,
+      "high_impact_error": true
+    },
+    {
+      "test_index": 712,
+      "dataset_index": 17469,
+      "image_path": "dataset/EuroSAT_RGB/EuroSAT_RGB\\PermanentCrop\\PermanentCrop_233.jpg",
+      "true_class": "PermanentCrop",
+      "true_category": "Agricultural / Orchards",
+      "pred_class": "Highway",
+      "pred_category": "Infrastructure",
+      "confidence": 0.748,
+      "high_impact_error": true
+    }
+  ]
+}

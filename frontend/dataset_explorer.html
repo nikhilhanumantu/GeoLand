@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_dashboard" name="shell-type"/>
+  <title>Dataset Explorer | GeoLand AI — EuroSAT &amp; Sentinel-2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin:0; padding:0; }
+      body { overscroll-behavior:none; }
+      main>:first-child { margin-top:0!important; }
+      main>:last-child { margin-bottom:0!important; }
+    }
+    ::-webkit-scrollbar { display:none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#fbf9f0",
+            "error": "#ba1a1a",
+            "primary-container": "#0f3d2e",
+            "on-secondary-fixed": "#002204",
+            "tertiary-fixed-dim": "#a2d3a4",
+            "inverse-surface": "#30312b",
+            "on-error-container": "#93000a",
+            "outline-variant": "#c0c8c3",
+            "on-tertiary-container": "#7baa7e",
+            "on-secondary-fixed-variant": "#005312",
+            "on-secondary-container": "#217128",
+            "background": "#fbf9f0",
+            "on-primary-fixed-variant": "#234f3f",
+            "surface-container-high": "#eae8df",
+            "primary-fixed-dim": "#a2d1bb",
+            "surface-container": "#f0eee5",
+            "surface-container-low": "#f6f4eb",
+            "surface-tint": "#3b6756",
+            "on-tertiary-fixed": "#002109",
+            "secondary-fixed": "#a3f69c",
+            "primary-fixed": "#beedd7",
+            "surface-container-highest": "#e4e3da",
+            "tertiary-container": "#113e1c",
+            "on-primary-container": "#7ba894",
+            "tertiary-fixed": "#bdefbe",
+            "secondary-container": "#a0f399",
+            "on-primary": "#ffffff",
+            "on-background": "#1b1c17",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f3f1e8",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#24502c",
+            "surface": "#fbf9f0",
+            "on-surface": "#1b1c17",
+            "on-error": "#ffffff",
+            "secondary": "#1b6d24",
+            "tertiary": "#00270b",
+            "surface-variant": "#e4e3da",
+            "outline": "#717974",
+            "primary": "#00261a",
+            "surface-dim": "#dcdad1",
+            "secondary-fixed-dim": "#88d982",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#a2d1bb",
+            "on-primary-fixed": "#002116",
+            "on-surface-variant": "#414944"
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          spacing: { "space-lg": "1.5rem", "gutter": "1.25rem", "space-xl": "2rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "margin": "1.5rem" },
+          fontFamily: {
+            "headline-md": ["Manrope"], "headline-sm": ["Manrope"], "tabular-metrics": ["Inter"], "body-md": ["Manrope"], "display-lg": ["Manrope"], "body-sm": ["Manrope"], "headline-lg": ["Manrope"], "label-lg": ["Inter"], "label-md": ["Inter"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="flex flex-col flex-1 overflow-hidden">
+      <div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low">
+        <a href="index.html" class="flex items-center gap-space-sm">
+          <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-secondary-fixed">
+            <span class="material-symbols-outlined text-[20px]">satellite_alt</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">GeoLand AI</span>
+            <span class="font-label-md text-label-md text-outline leading-tight">Earth Observation ML</span>
+          </div>
+        </a>
+      </div>
+      <div class="px-space-md py-space-xs"><div class="h-px w-full bg-surface-container-high"></div></div>
+      <nav class="flex-1 px-space-sm py-space-xs space-y-space-xs overflow-y-auto">
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="dashboard.html">
+          <span class="material-symbols-outlined text-[20px]">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded font-body-md text-body-md transition-colors bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r" data-path="dataset-explorer" href="dataset_explorer.html">
+          <span class="material-symbols-outlined text-[20px]">database</span>
+          <span>Dataset Explorer</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="classification" href="satellite_image_classification.html">
+          <span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+          <span>Classification</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multispectral-analysis" href="multispectral_analysis.html">
+          <span class="material-symbols-outlined text-[20px]">layers</span>
+          <span>Multispectral Analysis</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="robustness-test" href="robustness_analysis.html">
+          <span class="material-symbols-outlined text-[20px]">shield_with_heart</span>
+          <span>Robustness Test</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="image-summary" href="image_summary.html">
+          <span class="material-symbols-outlined text-[20px]">collections</span>
+          <span>Image Summary</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="error-analysis" href="error_confusion_analysis.html">
+          <span class="material-symbols-outlined text-[20px]">analytics</span>
+          <span>Error Analysis</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-comparison" href="model_comparison.html">
+          <span class="material-symbols-outlined text-[20px]">compare_arrows</span>
+          <span>Model Comparison</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="experiments-reports" href="experiments_reports.html">
+          <span class="material-symbols-outlined text-[20px]">science</span>
+          <span>Experiments &amp; Reports</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-management-and-settings" href="model_management_settings.html">
+          <span class="material-symbols-outlined text-[20px]">settings</span>
+          <span>Model Management &amp; Settings</span>
+        </a>
+      </nav>
+    </div>
+    <div class="p-space-sm bg-surface-container-low">
+      <div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between shadow-[0_1px_4px_rgba(15,61,46,0.04)]">
+        <div class="flex items-center gap-space-xs min-w-0">
+          <div class="relative flex-shrink-0">
+            <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+            </div>
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+          </div>
+          <div class="min-w-0 pl-space-xs">
+            <p class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Dr. Elena Rostova</p>
+            <p class="font-label-md text-label-md text-outline truncate leading-tight">Lead Geospatial Scientist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- TOP HEADER -->
+  <div class="pl-64">
+    <header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg">
+      <div class="flex items-center gap-space-md min-w-0">
+        <div class="flex items-center gap-space-xs font-body-md text-body-md text-outline-variant">
+          <a href="dashboard.html" class="text-on-surface-variant hover:text-primary font-label-lg text-label-lg font-medium">GeoLand AI</a>
+          <span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+          <span class="text-primary font-headline-sm text-headline-sm font-semibold tracking-tight">Dataset Explorer</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-full">
+          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          <span class="font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">27,000 Patches Loaded</span>
+        </div>
+        <a href="satellite_image_classification.html" class="px-space-md py-1.5 bg-primary text-on-primary rounded font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-colors flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+          <span>Run Inference Studio</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN DATASET EXPLORER CONTENT -->
+    <main class="relative pt-20 bg-surface w-full px-space-lg min-h-screen pb-space-xl">
+      <!-- Title & Search Bar -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+        <div>
+          <div class="flex items-center gap-space-xs mb-1">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider font-semibold">EuroSAT MSI Benchmark</span>
+            <span class="text-outline font-label-md text-label-md">•</span>
+            <span class="text-on-surface-variant font-label-md text-label-md">Sentinel-2 Multi-Spectral Imagery</span>
+          </div>
+          <h1 class="font-headline-lg text-headline-lg text-primary font-extrabold tracking-tight">EuroSAT Satellite Dataset Explorer</h1>
+          <p class="font-body-md text-body-md text-outline mt-0.5">Explore 27,000 geo-referenced image patches across 10 land-cover classes calibrated across 34 European nations</p>
+        </div>
+        <div class="flex items-center gap-space-sm">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+            <input type="text" id="dataset-search" placeholder="Search class or patch..." class="pl-9 pr-4 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant text-xs text-primary focus:outline-none focus:border-secondary w-56 shadow-sm"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Class Filter Chips Row -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-space-lg" id="filter-chip-row">
+        <button class="filter-chip active px-3.5 py-1.5 rounded-full bg-secondary text-on-secondary font-label-md text-xs font-semibold shadow-sm transition-all" data-class="all">
+          All Classes (27,000)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="Highway">
+          Highway (2,500)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="River">
+          River (2,500)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="Forest">
+          Forest (3,000)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="Residential">
+          Residential (3,000)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="AnnualCrop">
+          AnnualCrop (3,000)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="Industrial">
+          Industrial (2,500)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="Pasture">
+          Pasture (2,000)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="PermanentCrop">
+          PermanentCrop (2,500)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="SeaLake">
+          SeaLake (3,000)
+        </button>
+        <button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors" data-class="HerbaceousVegetation">
+          HerbaceousVegetation (3,000)
+        </button>
+      </div>
+
+      <!-- Live Interactive Patch Gallery Grid -->
+      <div class="mb-space-lg">
+        <div class="flex items-center justify-between mb-space-sm">
+          <div class="flex items-center gap-space-xs">
+            <span class="w-1.5 h-4 bg-secondary rounded-full"></span>
+            <h2 class="font-headline-sm text-headline-sm text-primary font-bold">EuroSAT Benchmark Patch Gallery</h2>
+          </div>
+          <span class="text-xs font-mono text-outline" id="gallery-counter">Showing 30 benchmark patches</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-space-sm" id="patch-grid">
+          <!-- Patches injected dynamically via JS from /dataset-samples -->
+          <div class="col-span-full py-12 text-center text-outline font-mono text-xs">
+            <span class="material-symbols-outlined text-[32px] animate-spin text-secondary mb-2">refresh</span>
+            <div>Loading EuroSAT multi-spectral patches...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EuroSAT Dataset Specification Reference Matrix -->
+      <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-surface-container-high mt-space-lg">
+        <div class="flex items-center justify-between mb-space-md">
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[22px]">info</span>
+            <h2 class="font-headline-sm text-headline-sm text-primary font-bold">Dataset Technical Specifications &amp; Split Protocol</h2>
+          </div>
+          <span class="font-mono text-xs text-secondary font-bold">Stratified 70/15/15 Seed 42</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md text-xs font-mono">
+          <div class="p-space-sm bg-surface-container-low rounded-lg space-y-2">
+            <div class="font-bold text-primary uppercase text-[11px] tracking-wider border-b border-surface-container-high pb-1">Radiometric Telemetry</div>
+            <div class="flex justify-between"><span class="text-outline">Sensor Platform:</span><span class="font-semibold text-on-surface">Sentinel-2A/B MSI</span></div>
+            <div class="flex justify-between"><span class="text-outline">Pixel Resolution:</span><span class="font-semibold text-on-surface">10 meters / pixel</span></div>
+            <div class="flex justify-between"><span class="text-outline">Patch Dimension:</span><span class="font-semibold text-on-surface">64 × 64 pixels (640m²)</span></div>
+            <div class="flex justify-between"><span class="text-outline">Spectral Domain:</span><span class="font-semibold text-secondary">VNIR + SWIR (13 Bands)</span></div>
+          </div>
+
+          <div class="p-space-sm bg-surface-container-low rounded-lg space-y-2">
+            <div class="font-bold text-primary uppercase text-[11px] tracking-wider border-b border-surface-container-high pb-1">Benchmark Splits</div>
+            <div class="flex justify-between"><span class="text-outline">Train Partition:</span><span class="font-semibold text-primary">18,900 patches (70%)</span></div>
+            <div class="flex justify-between"><span class="text-outline">Validation Partition:</span><span class="font-semibold text-primary">4,050 patches (15%)</span></div>
+            <div class="flex justify-between"><span class="text-outline">Test Partition:</span><span class="font-semibold text-secondary">4,050 patches (15%)</span></div>
+            <div class="flex justify-between"><span class="text-outline">Split Protocol:</span><span class="font-semibold text-on-surface">Stratified (Fixed Seed 42)</span></div>
+          </div>
+
+          <div class="p-space-sm bg-surface-container-low rounded-lg space-y-2">
+            <div class="font-bold text-primary uppercase text-[11px] tracking-wider border-b border-surface-container-high pb-1">Data Governance</div>
+            <div class="flex justify-between"><span class="text-outline">Geographic Extent:</span><span class="font-semibold text-on-surface">34 European Nations</span></div>
+            <div class="flex justify-between"><span class="text-outline">Total Calibrated:</span><span class="font-semibold text-primary">27,000 Patches</span></div>
+            <div class="flex justify-between"><span class="text-outline">License:</span><span class="font-semibold text-on-surface">Open Data (CC BY-SA 4.0)</span></div>
+            <div class="flex justify-between"><span class="text-outline">Citation:</span><span class="font-semibold text-secondary">Helber et al., IEEE JSTARS</span></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="api.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const grid = document.getElementById("patch-grid");
+      const searchInput = document.getElementById("dataset-search");
+      const counterEl = document.getElementById("gallery-counter");
+      const filterChips = document.querySelectorAll(".filter-chip");
+
+      let allSamples = [];
+      let activeFilter = "all";
+
+      try {
+        const res = await fetch("http://localhost:8000/dataset-samples");
+        const data = await res.json();
+        allSamples = data.samples || [];
+        renderGrid();
+      } catch (e) {
+        console.error("Failed to load dataset samples:", e);
+        // Fallback to preset samples
+        try {
+          const res = await fetch("http://localhost:8000/preset-samples");
+          const presets = await res.json();
+          allSamples = Object.values(presets).map((p, idx) => ({
+            id: `${p.class}_1`,
+            class: p.class,
+            category: p.category,
+            filename: p.filename || `${p.class}_001.jpg`,
+            resolution: "64x64 px (10m GSD)",
+            image_base64: p.image_base64
+          }));
+          renderGrid();
+        } catch (err2) {
+          grid.innerHTML = '<div class="col-span-full py-8 text-center text-error">Unable to connect to dataset API. Ensure FastAPI backend is running on port 8000.</div>';
+        }
+      }
+
+      function renderGrid() {
+        let filtered = allSamples;
+        if (activeFilter !== "all") {
+          filtered = filtered.filter(s => s.class.toLowerCase() === activeFilter.toLowerCase());
+        }
+        const term = searchInput.value.trim().toLowerCase();
+        if (term) {
+          filtered = filtered.filter(s => s.class.toLowerCase().includes(term) || (s.category && s.category.toLowerCase().includes(term)) || s.filename.toLowerCase().includes(term));
+        }
+
+        counterEl.textContent = `Showing ${filtered.length} benchmark patches`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '<div class="col-span-full py-8 text-center text-outline font-mono text-xs">No patches match the selected filter.</div>';
+          return;
+        }
+
+        grid.innerHTML = "";
+        filtered.forEach(s => {
+          const card = document.createElement("div");
+          card.className = "bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-surface-container-high hover:border-secondary transition-all flex flex-col justify-between group";
+          card.innerHTML = `
+            <div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+              <img src="${s.image_base64}" alt="${s.class}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-secondary-fixed text-[10px] font-mono font-bold">${s.class}</span>
+            </div>
+            <div class="p-2.5 flex flex-col justify-between flex-1">
+              <div>
+                <div class="text-[10px] font-mono text-outline truncate">${s.category || 'Land-Cover'}</div>
+                <div class="text-[11px] font-mono font-bold text-primary truncate mt-0.5">${s.filename}</div>
+              </div>
+              <a href="satellite_image_classification.html?sample=${s.class}" class="mt-2 block text-center py-1 bg-surface-container hover:bg-secondary hover:text-on-secondary rounded text-[10px] font-mono font-semibold text-primary transition-all">
+                Classify Tile &rarr;
+              </a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      filterChips.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterChips.forEach(b => {
+            b.className = "filter-chip px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-xs hover:bg-surface-container-highest transition-colors";
+          });
+          btn.className = "filter-chip active px-3.5 py-1.5 rounded-full bg-secondary text-on-secondary font-label-md text-xs font-semibold shadow-sm transition-all";
+          activeFilter = btn.dataset.class;
+          renderGrid();
+        });
+      });
+
+      searchInput.addEventListener("input", renderGrid);
+    });
+  </script>
+</body>
+</html>

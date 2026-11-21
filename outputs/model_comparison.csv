@@ -1,0 +1,4 @@
+Model,Accuracy,Macro Precision,Macro Recall,Macro F1,Latency (ms),Throughput (FPS),Parameters (M)
+resnet50,0.8547,0.8663,0.8547,0.8552,13.57,73.7,23.53
+efficientnet_b0,0.852,0.8534,0.852,0.8499,6.07,164.7,4.02
+convnext_tiny,0.9333,0.937,0.9333,0.9336,11.41,87.7,27.83

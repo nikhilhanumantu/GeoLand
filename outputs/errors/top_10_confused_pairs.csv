@@ -1,0 +1,11 @@
+Rank,Class Pair,Total Misclassifications,Breakdown
+1,AnnualCrop <-> Highway,6,AnnualCrop -> Highway: 5; Highway -> AnnualCrop: 1
+2,HerbaceousVegetation <-> PermanentCrop,6,HerbaceousVegetation -> PermanentCrop: 4; PermanentCrop -> HerbaceousVegetation: 2
+3,Highway <-> River,6,River -> Highway: 6
+4,Industrial <-> Residential,4,Residential -> Industrial: 4
+5,River <-> SeaLake,4,SeaLake -> River: 4
+6,Highway <-> PermanentCrop,3,PermanentCrop -> Highway: 3
+7,HerbaceousVegetation <-> SeaLake,3,SeaLake -> HerbaceousVegetation: 3
+8,Forest <-> Pasture,3,Forest -> Pasture: 2; Pasture -> Forest: 1
+9,AnnualCrop <-> PermanentCrop,2,AnnualCrop -> PermanentCrop: 2
+10,Pasture <-> PermanentCrop,2,Pasture -> PermanentCrop: 2

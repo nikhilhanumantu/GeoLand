@@ -1,0 +1,10 @@
+Novel Class,Total Samples,Average Confidence,Uncertain Detection Rate (%),Dominant Semantic Analogy
+airplane,100,0.4673,75.0,Industrial (48.0%)
+baseballdiamond,100,0.6001,48.0,Highway (44.0%)
+buildings,100,0.7154,24.0,Industrial (92.0%)
+harbor,100,0.7078,27.0,River (56.0%)
+intersection,100,0.7242,21.0,Highway (58.0%)
+mobilehomepark,100,0.8034,12.0,Industrial (96.0%)
+parkinglot,100,0.8374,6.0,Industrial (96.0%)
+runway,100,0.5762,59.0,AnnualCrop (40.0%)
+tenniscourt,100,0.6046,45.0,Industrial (72.0%)

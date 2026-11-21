@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-bright":"#fbf9f0","error":"#ba1a1a","primary-container":"#0f3d2e","on-secondary-fixed":"#002204","tertiary-fixed-dim":"#a2d3a4","inverse-surface":"#30312b","on-error-container":"#93000a","outline-variant":"#c0c8c3","on-tertiary-container":"#7baa7e","on-secondary-fixed-variant":"#005312","on-secondary-container":"#217128","background":"#fbf9f0","on-primary-fixed-variant":"#234f3f","surface-container-high":"#eae8df","primary-fixed-dim":"#a2d1bb","surface-container":"#f0eee5","surface-container-low":"#f6f4eb","surface-tint":"#3b6756","on-tertiary-fixed":"#002109","secondary-fixed":"#a3f69c","primary-fixed":"#beedd7","surface-container-highest":"#e4e3da","tertiary-container":"#113e1c","on-primary-container":"#7ba894","tertiary-fixed":"#bdefbe","secondary-container":"#a0f399","on-primary":"#ffffff","on-background":"#1b1c17","error-container":"#ffdad6","inverse-on-surface":"#f3f1e8","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-tertiary-fixed-variant":"#24502c","surface":"#fbf9f0","on-surface":"#1b1c17","on-error":"#ffffff","secondary":"#1b6d24","tertiary":"#00270b","surface-variant":"#e4e3da","outline":"#717974","primary":"#00261a","surface-dim":"#dcdad1","secondary-fixed-dim":"#88d982","on-secondary":"#ffffff","inverse-primary":"#a2d1bb","on-primary-fixed":"#002116","on-surface-variant":"#414944"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter":"1.25rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem"},fontFamily:{"headline-md":["Manrope"],"headline-sm":["Manrope"],"tabular-metrics":["Inter"],"body-md":["Manrope"],"display-lg":["Manrope"],"body-sm":["Manrope"],"headline-lg":["Manrope"],"label-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Manrope"],"body-lg":["Manrope"]},fontSize:{"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"tabular-metrics":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">GeoLand AI</span><span class="font-label-md text-label-md text-outline leading-tight">Earth Observation ML</span></div></div><div class="px-space-md py-space-xs"><div class="h-px w-full bg-surface-container-high"></div></div><nav class="flex-1 px-space-sm py-space-xs space-y-space-xs overflow-y-auto" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r"><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dataset-explorer" href="dataset_explorer.html"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Explorer</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="classification" href="satellite_image_classification.html"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span>Classification</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multispectral-analysis" href="multispectral_analysis.html"><span class="material-symbols-outlined text-[20px]">layers</span><span>Multispectral Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="robustness-test" href="robustness_analysis.html"><span class="material-symbols-outlined text-[20px]">shield_with_heart</span><span>Robustness Test</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="image-summary" href="image_summary.html"><span class="material-symbols-outlined text-[20px]">collections</span><span>Image Summary</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="error-analysis" href="error_confusion_analysis.html"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Error Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-comparison" href="model_comparison.html"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span>Model Comparison</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="experiments-reports" href="experiments_reports.html"><span class="material-symbols-outlined text-[20px]">science</span><span>Experiments &amp; Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-management-and-settings" href="model_management_settings.html"><span class="material-symbols-outlined text-[20px]">settings</span><span>Model Management &amp; Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between shadow-[0_1px_4px_rgba(15,61,46,0.04)]"><div class="flex items-center gap-space-xs min-w-0"><div class="relative flex-shrink-0"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="min-w-0 pl-space-xs"><p class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Dr. Elena Rostova</p><p class="font-label-md text-label-md text-outline truncate leading-tight">Lead Geospatial Scientist</p></div></div><button class="text-outline hover:text-on-surface transition-colors p-space-xs rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md min-w-0"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex items-center gap-space-xs font-body-md text-body-md text-outline-variant"><span class="text-on-surface-variant font-label-lg text-label-lg font-medium">GeoLand AI</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-primary font-headline-sm text-headline-sm font-semibold tracking-tight">Intelligent Land Observation</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">Sentinel-2 &amp; EuroSAT Ready</span></div><div class="flex items-center gap-space-xs"><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button><a href="satellite_image_classification.html" class="px-space-md py-1.5 bg-primary text-on-primary rounded font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-colors flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">satellite_alt</span><span>Run Inference</span></a></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Page Header matching Row 4, Column 1 -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider">Benchmark Evaluation</span>
+<span class="text-outline font-label-md text-label-md">•</span>
+<span class="text-on-surface-variant font-label-md text-label-md">EuroSAT 10-Class Benchmark</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Model Comparison</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Compare the performance of multiple models on the land-use classification task</p>
+</div>
+<!-- Quick Actions & Status Filters -->
+<div class="flex items-center gap-space-xs self-start md:self-auto">
+<div class="flex items-center bg-surface-container rounded-lg p-1 shadow-sm">
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm transition-all" type="button">Top-1 Accuracy</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">Balanced Macro F1</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">Edge Latency</button>
+</div>
+<button class="px-space-sm py-1.5 bg-surface-container-lowest hover:bg-surface-container-high text-primary rounded-lg font-label-md text-label-md flex items-center gap-1 shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Primary Comparison Grid (Table on Left, Radar Chart on Right) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-lg">
+<!-- LEFT PANEL: Benchmark Metrics Table (7 Columns) -->
+<div class="xl:col-span-7 flex flex-col justify-between bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">table_rows</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Comprehensive Benchmark Metrics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standardized test split (5,400 multi-spectral patches)</p>
+</div>
+</div>
+<span class="font-label-md text-label-md bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">k=5 Cross-Validated</span>
+</div>
+<!-- Metric Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-lg">Model</th>
+<th class="py-space-sm px-space-xs text-right">Accuracy</th>
+<th class="py-space-sm px-space-xs text-right">Precision</th>
+<th class="py-space-sm px-space-xs text-right">Recall</th>
+<th class="py-space-sm px-space-xs text-right">F1-Score</th>
+<th class="py-space-sm px-space-md text-right rounded-r-lg">Params</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: CNN -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E5A83B] flex-shrink-0"></span>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary">Custom CNN</span>
+<p class="font-body-sm text-body-sm text-outline">Lightweight Baseline (4-Block Conv)</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface">98.21%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface">98.17%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface">98.09%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface font-semibold">98.13%</td>
+<td class="py-space-md px-space-md text-right font-tabular-metrics text-tabular-metrics text-on-surface-variant">1.2M</td>
+</tr>
+<!-- Row 2: ResNet50 (Champion) -->
+<tr class="bg-secondary-container/20 hover:bg-secondary-container/30 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary flex-shrink-0"></span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">ResNet50</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 bg-secondary text-on-secondary rounded text-[10px] font-label-md leading-none uppercase font-bold tracking-wide">
+<span class="material-symbols-outlined text-[12px]">verified</span> Champion
+                        </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Deep Residual Feature Backbone</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-primary font-bold">98.76%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-primary font-bold">98.74%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-primary font-bold">98.71%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-primary font-bold">98.72%</td>
+<td class="py-space-md px-space-md text-right font-tabular-metrics text-tabular-metrics text-on-surface font-semibold">23.5M</td>
+</tr>
+<!-- Row 3: EfficientNet-B0 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2563EB] flex-shrink-0"></span>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary">EfficientNet-B0</span>
+<p class="font-body-sm text-body-sm text-outline">Compound Scaled Mobile Inverted Bottleneck</p>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface">98.68%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface">98.67%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface">98.65%</td>
+<td class="py-space-md px-space-xs text-right font-tabular-metrics text-tabular-metrics text-on-surface font-semibold">98.66%</td>
+<td class="py-space-md px-space-md text-right font-tabular-metrics text-tabular-metrics text-on-surface-variant">5.3M</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Quick Metrics Ribbon below the table -->
+<div class="mt-space-lg pt-space-md border-t border-surface-container grid grid-cols-3 gap-space-sm">
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-md text-label-md text-outline block">Avg Precision Delta</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">+0.57%</span>
+<span class="font-body-sm text-body-sm text-secondary">ResNet vs CNN baseline</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-md text-label-md text-outline block">Parameter Efficiency</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">4.4× Fewer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">EfficientNet vs ResNet</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-md text-label-md text-outline block">Test Samples Evaluated</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">5,400</span>
+<span class="font-body-sm text-body-sm text-outline">10 Balanced Classes</span>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Radar Chart & Multi-Metric Evaluation (5 Columns) -->
+<div class="xl:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Multi-dimensional Performance Profile</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Spider radar comparison across core operational vectors</p>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">radar</span>
+</div>
+<!-- Spider / Radar SVG Canvas -->
+<div class="relative w-full aspect-square max-w-[360px] mx-auto flex items-center justify-center my-space-xs">
+<svg class="w-full h-full overflow-visible select-none" viewbox="0 0 400 400">
+<defs>
+<radialgradient cx="50%" cy="50%" id="radarGlow" r="50%">
+<stop offset="0%" stop-color="#1B6D24" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#1B6D24" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<!-- Outer background soft glow -->
+<circle cx="200" cy="200" fill="url(#radarGlow)" r="140"></circle>
+<!-- Concentric Pentagons (Grid Rings) -->
+<!-- Ring 1 (20%) -->
+<polygon fill="none" points="200,172 227,191 216,223 184,223 173,191" stroke="#E4E3DA" stroke-width="1"></polygon>
+<!-- Ring 2 (40%) -->
+<polygon fill="none" points="200,144 253,182 233,245 167,245 147,182" stroke="#E4E3DA" stroke-width="1"></polygon>
+<!-- Ring 3 (60%) -->
+<polygon fill="none" points="200,116 280,174 249,268 151,268 120,174" stroke="#E4E3DA" stroke-width="1"></polygon>
+<!-- Ring 4 (80%) -->
+<polygon fill="none" points="200,88 306,165 266,290 134,290 94,165" stroke="#E4E3DA" stroke-width="1"></polygon>
+<!-- Ring 5 (100% outer border) -->
+<polygon fill="none" points="200,60 333,157 282,313 118,313 67,157" stroke="#C0C8C3" stroke-dasharray="2 3" stroke-width="1.5"></polygon>
+<!-- Axis Lines from Center (200, 200) to 5 vertices -->
+<!-- Axis 1: Top (Accuracy) -->
+<line stroke="#E4E3DA" stroke-width="1.2" x1="200" x2="200" y1="200" y2="60"></line>
+<!-- Axis 2: Top-Right (Recall) -->
+<line stroke="#E4E3DA" stroke-width="1.2" x1="200" x2="333" y1="200" y2="157"></line>
+<!-- Axis 3: Bottom-Right (Precision) -->
+<line stroke="#E4E3DA" stroke-width="1.2" x1="200" x2="282" y1="200" y2="313"></line>
+<!-- Axis 4: Bottom-Left (Inference Speed) -->
+<line stroke="#E4E3DA" stroke-width="1.2" x1="200" x2="118" y1="200" y2="313"></line>
+<!-- Axis 5: Top-Left (Robustness) -->
+<line stroke="#E4E3DA" stroke-width="1.2" x1="200" x2="67" y1="200" y2="157"></line>
+<!-- Axis Labels -->
+<!-- Accuracy (Top) -->
+<text class="font-label-md fill-on-surface font-semibold text-[12px]" text-anchor="middle" x="200" y="44">Accuracy</text>
+<!-- Recall (Top Right) -->
+<text class="font-label-md fill-on-surface font-semibold text-[12px]" text-anchor="start" x="345" y="160">Recall</text>
+<!-- Precision (Bottom Right) -->
+<text class="font-label-md fill-on-surface font-semibold text-[12px]" text-anchor="start" x="294" y="332">Precision</text>
+<!-- Inference Speed (Bottom Left) -->
+<text class="font-label-md fill-on-surface font-semibold text-[12px]" text-anchor="end" x="100" y="332">Inf. Speed</text>
+<!-- Robustness (Top Left) -->
+<text class="font-label-md fill-on-surface font-semibold text-[12px]" text-anchor="end" x="55" y="160">Robustness</text>
+<!-- POLYGON 1: CNN (Yellow Line: #E5A83B) -->
+<!-- High speed (axis 4), moderate accuracy & robustness -->
+<polygon fill="#E5A83B" fill-opacity="0.10" points="200,80 300,168 258,284 125,302 96,172" stroke="#E5A83B" stroke-linejoin="round" stroke-width="2"></polygon>
+<circle cx="200" cy="80" fill="#E5A83B" r="3"></circle>
+<circle cx="300" cy="168" fill="#E5A83B" r="3"></circle>
+<circle cx="258" cy="284" fill="#E5A83B" r="3"></circle>
+<circle cx="125" cy="302" fill="#E5A83B" r="3"></circle>
+<circle cx="96" cy="172" fill="#E5A83B" r="3"></circle>
+<!-- POLYGON 3: EfficientNet-B0 (Blue Line: #2563EB) -->
+<!-- Very balanced, strong precision, moderate-high speed -->
+<polygon fill="#2563EB" fill-opacity="0.08" points="200,68 322,160 274,302 142,280 80,162" stroke="#2563EB" stroke-dasharray="4 2" stroke-linejoin="round" stroke-width="2"></polygon>
+<circle cx="200" cy="68" fill="#2563EB" r="3"></circle>
+<circle cx="322" cy="160" fill="#2563EB" r="3"></circle>
+<circle cx="274" cy="302" fill="#2563EB" r="3"></circle>
+<circle cx="142" cy="280" fill="#2563EB" r="3"></circle>
+<circle cx="80" cy="162" fill="#2563EB" r="3"></circle>
+<!-- POLYGON 2: ResNet50 (Champion Forest Green: #1B6D24) -->
+<!-- Maximum Accuracy, Recall, Precision, Robustness, lower inference speed -->
+<polygon fill="#1B6D24" fill-opacity="0.22" points="200,63 328,158 279,309 160,250 72,159" stroke="#1B6D24" stroke-linejoin="round" stroke-width="2.5"></polygon>
+<circle cx="200" cy="63" fill="#1B6D24" r="3.5"></circle>
+<circle cx="328" cy="158" fill="#1B6D24" r="3.5"></circle>
+<circle cx="279" cy="309" fill="#1B6D24" r="3.5"></circle>
+<circle cx="160" cy="250" fill="#1B6D24" r="3.5"></circle>
+<circle cx="72" cy="159" fill="#1B6D24" r="3.5"></circle>
+</svg>
+</div>
+<!-- Clean Matching Legend below Radar -->
+<div class="flex items-center justify-center gap-space-md pt-space-xs border-t border-surface-container">
+<div class="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="w-3 h-3 rounded-full bg-[#E5A83B]"></span>
+<span class="font-label-md text-label-md text-on-surface">CNN</span>
+</div>
+<div class="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="w-3 h-3 rounded-full bg-secondary ring-2 ring-secondary-container"></span>
+<span class="font-label-md text-label-md text-primary font-bold">ResNet50</span>
+</div>
+<div class="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="w-3 h-3 rounded-full bg-[#2563EB]"></span>
+<span class="font-label-md text-label-md text-on-surface">EfficientNet-B0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Area: Performance Insights & Tradeoff Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Card 1: Best Edge Deployment -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-[#E5A83B]/15 flex items-center justify-center text-[#B47814]">
+<span class="material-symbols-outlined text-[22px]">memory</span>
+</div>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Ultra-Fast</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Best Edge Deployment</h3>
+<p class="font-headline-md text-headline-md text-on-surface font-bold">Custom CNN</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+          Ultra-compact architecture ideal for on-orbit satellite edge compute and unmanned aerial survey modules with constrained power envelopes.
+        </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex items-center justify-between font-tabular-metrics text-tabular-metrics">
+<span class="text-outline">Footprint: <strong class="text-on-surface">1.2M params</strong></span>
+<span class="text-secondary font-bold">6ms latency</span>
+</div>
+</div>
+<!-- Card 2: Highest Overall Accuracy -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between ring-1 ring-secondary/20 hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary-container/30 rounded-full blur-xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">military_tech</span>
+</div>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">Top-1 Score</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Highest Overall Accuracy</h3>
+<p class="font-headline-md text-headline-md text-primary font-bold">ResNet-50</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+          Provides top spatial fidelity across all 10 Land Use Land Cover (LULC) classes with deepest spectral pattern extraction under atmospheric haze.
+        </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex items-center justify-between font-tabular-metrics text-tabular-metrics">
+<span class="text-outline">Accuracy: <strong class="text-primary font-bold">98.76% Top-1</strong></span>
+<span class="text-on-surface font-semibold">14ms latency</span>
+</div>
+</div>
+<!-- Card 3: Best Generalization Balance -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB]">
+<span class="material-symbols-outlined text-[22px]">balance</span>
+</div>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Pareto Optimal</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Best Generalization Balance</h3>
+<p class="font-headline-md text-headline-md text-on-surface font-bold">EfficientNet-B0</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+          Achieves within 0.08% of ResNet50 accuracy while reducing memory and FLOP load by 77%, making it the recommended cloud inference workhorse.
+        </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex items-center justify-between font-tabular-metrics text-tabular-metrics">
+<span class="text-outline">Footprint: <strong class="text-on-surface">5.3M params</strong></span>
+<span class="text-secondary font-bold">9ms latency</span>
+</div>
+</div>
+</div>
+<!-- Interactive Script for Sidebar Active State & Subtle Interactivity -->
+<script>
+    (function() {
+      // Ensure the 'Model Comparison' sidebar entry is dynamically highlighted as active
+      try {
+        const sidebarLinks = document.querySelectorAll('aside nav a');
+        sidebarLinks.forEach(link => {
+          if (link.getAttribute('data-path') === 'model-comparison') {
+            link.classList.remove('text-on-surface-variant');
+            link.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-semibold', 'relative');
+            const indicator = document.createElement('span');
+            indicator.className = "absolute left-0 top-1.5 bottom-1.5 w-1 bg-secondary rounded-r";
+            link.prepend(indicator);
+          }
+        });
+      } catch (e) {
+        // silent fail if shell context differs
+      }
+    })();
+  </script>
+</div></main></div><script src="api.js"></script></body></html>

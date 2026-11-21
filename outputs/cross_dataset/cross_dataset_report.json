@@ -1,0 +1,122 @@
+{
+  "dataset_name": "UC Merced Land Use Dataset",
+  "dataset_source": "USGS National Map (Aerial Orthophotos, USA)",
+  "spatial_resolution": "1 foot (0.3m) per pixel (vs EuroSAT 10m/pixel)",
+  "mapped_categories_count": 1200,
+  "ood_categories_count": 900,
+  "comparison_table": [
+    {
+      "Model": "resnet50",
+      "EuroSAT Test Acc": 0.8547,
+      "UC Merced Transfer Acc": 0.2792,
+      "Domain Gap Drop": 0.5755,
+      "Macro Precision": 0.3148,
+      "Macro Recall": 0.2912,
+      "Macro F1": 0.2508,
+      "Avg Confidence": 0.4964,
+      "Uncertain Pct": 69.17,
+      "Latency (ms)": 22.25
+    },
+    {
+      "Model": "efficientnet_b0",
+      "EuroSAT Test Acc": 0.852,
+      "UC Merced Transfer Acc": 0.2033,
+      "Domain Gap Drop": 0.6487,
+      "Macro Precision": 0.2126,
+      "Macro Recall": 0.1988,
+      "Macro F1": 0.163,
+      "Avg Confidence": 0.5943,
+      "Uncertain Pct": 53.75,
+      "Latency (ms)": 9.69
+    },
+    {
+      "Model": "convnext_tiny",
+      "EuroSAT Test Acc": 0.9333,
+      "UC Merced Transfer Acc": 0.4,
+      "Domain Gap Drop": 0.5333,
+      "Macro Precision": 0.3982,
+      "Macro Recall": 0.4113,
+      "Macro F1": 0.3522,
+      "Avg Confidence": 0.6444,
+      "Uncertain Pct": 41.75,
+      "Latency (ms)": 32.35
+    }
+  ],
+  "per_class_transfer_accuracy": {
+    "AnnualCrop": 0.77,
+    "Forest": 0.37,
+    "HerbaceousVegetation": 0.68,
+    "Highway": 0.68,
+    "Industrial": 0.39,
+    "Pasture": 0.28,
+    "Residential": 0.0033,
+    "River": 0.94,
+    "SeaLake": 0.0
+  },
+  "ood_analysis": [
+    {
+      "Novel Class": "airplane",
+      "Total Samples": 100,
+      "Average Confidence": 0.4673,
+      "Uncertain Detection Rate (%)": 75.0,
+      "Dominant Semantic Analogy": "Industrial (48.0%)"
+    },
+    {
+      "Novel Class": "baseballdiamond",
+      "Total Samples": 100,
+      "Average Confidence": 0.6001,
+      "Uncertain Detection Rate (%)": 48.0,
+      "Dominant Semantic Analogy": "Highway (44.0%)"
+    },
+    {
+      "Novel Class": "buildings",
+      "Total Samples": 100,
+      "Average Confidence": 0.7154,
+      "Uncertain Detection Rate (%)": 24.0,
+      "Dominant Semantic Analogy": "Industrial (92.0%)"
+    },
+    {
+      "Novel Class": "harbor",
+      "Total Samples": 100,
+      "Average Confidence": 0.7078,
+      "Uncertain Detection Rate (%)": 27.0,
+      "Dominant Semantic Analogy": "River (56.0%)"
+    },
+    {
+      "Novel Class": "intersection",
+      "Total Samples": 100,
+      "Average Confidence": 0.7242,
+      "Uncertain Detection Rate (%)": 21.0,
+      "Dominant Semantic Analogy": "Highway (58.0%)"
+    },
+    {
+      "Novel Class": "mobilehomepark",
+      "Total Samples": 100,
+      "Average Confidence": 0.8034,
+      "Uncertain Detection Rate (%)": 12.0,
+      "Dominant Semantic Analogy": "Industrial (96.0%)"
+    },
+    {
+      "Novel Class": "parkinglot",
+      "Total Samples": 100,
+      "Average Confidence": 0.8374,
+      "Uncertain Detection Rate (%)": 6.0,
+      "Dominant Semantic Analogy": "Industrial (96.0%)"
+    },
+    {
+      "Novel Class": "runway",
+      "Total Samples": 100,
+      "Average Confidence": 0.5762,
+      "Uncertain Detection Rate (%)": 59.0,
+      "Dominant Semantic Analogy": "AnnualCrop (40.0%)"
+    },
+    {
+      "Novel Class": "tenniscourt",
+      "Total Samples": 100,
+      "Average Confidence": 0.6046,
+      "Uncertain Detection Rate (%)": 45.0,
+      "Dominant Semantic Analogy": "Industrial (72.0%)"
+    }
+  ],
+  "evaluation_timestamp": "2026-11-21 10:50:54"
+}

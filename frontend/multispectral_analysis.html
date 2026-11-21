@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-bright":"#fbf9f0","error":"#ba1a1a","primary-container":"#0f3d2e","on-secondary-fixed":"#002204","tertiary-fixed-dim":"#a2d3a4","inverse-surface":"#30312b","on-error-container":"#93000a","outline-variant":"#c0c8c3","on-tertiary-container":"#7baa7e","on-secondary-fixed-variant":"#005312","on-secondary-container":"#217128","background":"#fbf9f0","on-primary-fixed-variant":"#234f3f","surface-container-high":"#eae8df","primary-fixed-dim":"#a2d1bb","surface-container":"#f0eee5","surface-container-low":"#f6f4eb","surface-tint":"#3b6756","on-tertiary-fixed":"#002109","secondary-fixed":"#a3f69c","primary-fixed":"#beedd7","surface-container-highest":"#e4e3da","tertiary-container":"#113e1c","on-primary-container":"#7ba894","tertiary-fixed":"#bdefbe","secondary-container":"#a0f399","on-primary":"#ffffff","on-background":"#1b1c17","error-container":"#ffdad6","inverse-on-surface":"#f3f1e8","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-tertiary-fixed-variant":"#24502c","surface":"#fbf9f0","on-surface":"#1b1c17","on-error":"#ffffff","secondary":"#1b6d24","tertiary":"#00270b","surface-variant":"#e4e3da","outline":"#717974","primary":"#00261a","surface-dim":"#dcdad1","secondary-fixed-dim":"#88d982","on-secondary":"#ffffff","inverse-primary":"#a2d1bb","on-primary-fixed":"#002116","on-surface-variant":"#414944"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter":"1.25rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem"},fontFamily:{"headline-md":["Manrope"],"headline-sm":["Manrope"],"tabular-metrics":["Inter"],"body-md":["Manrope"],"display-lg":["Manrope"],"body-sm":["Manrope"],"headline-lg":["Manrope"],"label-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Manrope"],"body-lg":["Manrope"]},fontSize:{"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"tabular-metrics":["14px",{lineHeight:"20px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"display-lg-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">GeoLand AI</span><span class="font-label-md text-label-md text-outline leading-tight">Earth Observation ML</span></div></div><div class="px-space-md py-space-xs"><div class="h-px w-full bg-surface-container-high"></div></div><nav class="flex-1 px-space-sm py-space-xs space-y-space-xs overflow-y-auto" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:bg-secondary before:rounded-r"><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dataset-explorer" href="dataset_explorer.html"><span class="material-symbols-outlined text-[20px]">database</span><span>Dataset Explorer</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="classification" href="satellite_image_classification.html"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span>Classification</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multispectral-analysis" href="multispectral_analysis.html"><span class="material-symbols-outlined text-[20px]">layers</span><span>Multispectral Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="robustness-test" href="robustness_analysis.html"><span class="material-symbols-outlined text-[20px]">shield_with_heart</span><span>Robustness Test</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="image-summary" href="image_summary.html"><span class="material-symbols-outlined text-[20px]">collections</span><span>Image Summary</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="error-analysis" href="error_confusion_analysis.html"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Error Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-comparison" href="model_comparison.html"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span>Model Comparison</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="experiments-reports" href="experiments_reports.html"><span class="material-symbols-outlined text-[20px]">science</span><span>Experiments &amp; Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="model-management-and-settings" href="model_management_settings.html"><span class="material-symbols-outlined text-[20px]">settings</span><span>Model Management &amp; Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between shadow-[0_1px_4px_rgba(15,61,46,0.04)]"><div class="flex items-center gap-space-xs min-w-0"><div class="relative flex-shrink-0"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="min-w-0 pl-space-xs"><p class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Dr. Elena Rostova</p><p class="font-label-md text-label-md text-outline truncate leading-tight">Lead Geospatial Scientist</p></div></div><button class="text-outline hover:text-on-surface transition-colors p-space-xs rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md min-w-0"><img alt="GeoLand AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrA4sOeZYYu02P7hfADyYcFfRCJ0i9L4imFszYuIHxu6uPEO0m4noySZmJoQPA5jxdFddB0pYeGFR6PZp3evih4sInMDLybvV864-6pIhXtXeYSIvIRJaLmAc89KOD-anSwRlfHml52fXMG-RL6UW-ArmAAcGjj0vrjxQ8-Dl18gJvhr_gbJfLQEi0VLVIa2JtnY33l5oBXHOR_7HqeXUKFW99GutLhajiQz_HYGqd91zQ"/><div class="flex items-center gap-space-xs font-body-md text-body-md text-outline-variant"><span class="text-on-surface-variant font-label-lg text-label-lg font-medium">GeoLand AI</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-primary font-headline-sm text-headline-sm font-semibold tracking-tight">Intelligent Land Observation</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">Sentinel-2 &amp; EuroSAT Ready</span></div><div class="flex items-center gap-space-xs"><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button><a href="satellite_image_classification.html" class="px-space-md py-1.5 bg-primary text-on-primary rounded font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-colors flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">satellite_alt</span><span>Run Inference</span></a></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Navigation Sub-Bar & Breadcrumb / Class Toggle -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Multispectral Analysis</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Explore spectral bands and their contribution to land-use classification</p>
+</div>
+<!-- Target Land Use Selector -->
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-xl shadow-sm">
+<span class="font-label-md text-label-md text-outline px-space-xs uppercase tracking-wider">Class:</span>
+<button class="px-space-md py-1 rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm font-semibold flex items-center gap-1.5 transition-all">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+        Forest (Dense Canopy)
+      </button>
+<button class="px-space-md py-1 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all">
+        River / Water
+      </button>
+<button class="px-space-md py-1 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all">
+        Highway
+      </button>
+<button class="px-space-md py-1 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container transition-all">
+        Residential
+      </button>
+</div>
+</div>
+<!-- SECTION 1: Spectral Band Visualization (Matches Row 2 Col 3 Layout) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm mb-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">layers</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Spectral Band Visualization</h2>
+<span class="ml-2 font-label-md text-label-md px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full font-semibold">EuroSAT 13-Band Multispectral</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> 10m / 20m / 60m GSD</span>
+<span class="text-outline-variant">•</span>
+<span>Tile ID: ES2023_F841</span>
+</div>
+</div>
+<!-- Split view: Left RGB Composite + Right 13 Band Grayscale Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Primary RGB Composite -->
+<div class="lg:col-span-4 flex flex-col items-center">
+<div class="w-full aspect-square relative rounded-xl overflow-hidden shadow-md group">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="High-resolution Sentinel-2 natural color composite image showing lush dense temperate forest canopy interwoven with slight topographic terrain variations, natural deep emerald greens, warm forest shadows, sharp spatial satellite observation detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIW0jdKK-x5fbLEdDfNHYih0hByRKgvfRtKu77pmpDL_-pzGN4YlPoSJk_1oUJyiIW2vjqKPe-46xO-T0J-wwH0tEhrAtjMo5OzFoWdSTpeC5stDgRZK0yONdv07kJLFyhBLbDjSeigfujCfqLYwAJugqOEMMd2t1N4kgdMsZ_Y0W9JmqE-r0N9BRsKsYHRV2MI25sc943WGRJQXR3-wiREQy80q17tKmsXjJyYpdP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary">
+<div>
+<span class="font-headline-sm text-headline-sm font-bold block leading-none">RGB Composite</span>
+<span class="font-label-md text-label-md opacity-90">Bands 4 (Red), 3 (Green), 2 (Blue)</span>
+</div>
+<span class="p-1.5 bg-surface-container-lowest/20 backdrop-blur-md rounded-lg material-symbols-outlined text-[20px]">filter_vintage</span>
+</div>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-sm text-center">
+          True Color Rendering (B04, B03, B02) · 10m Resolution
+        </p>
+</div>
+<!-- 13 Sentinel-2 Individual Band Grid (2x7 layout) -->
+<div class="lg:col-span-8">
+<div class="grid grid-cols-4 sm:grid-cols-7 gap-space-xs">
+<!-- Band 1 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125" data-alt="Satellite band radiance intensity map in high-contrast monochromatic grayscale for Sentinel-2 Coastal Aerosol B1 wavelength 443nm showing diffuse atmospheric penetration over forested terrain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxMzCxUg5qO4WEqNtvN806fP-S0IRYuIftDBHmw1DkkbR6Hg2DEPgJshrRw_U2eq-okcRFD0BrGLAYoFhdDp2dy6c2yQdH8UEERwcAWNQYn8hpzki9KdRsDyCmkspxicUvypEeeliQ1QlgD7Cwud3YDDwhyyP3O83g_j9wc4LMPOCR9VfRXp4O5px81ZddPjXoFKEeE9M4G1hdRX80nhqGjKUW8Zs36XI7dUkiK354"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B1</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">443 nm</span>
+</div>
+<!-- Band 2 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-95" data-alt="Satellite band radiance map in monochrome grayscale for Sentinel-2 Band 2 Blue channel at 490nm showing subtle chlorophyll absorption in forest foliage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfxjVkBqRdBKW7ARTq6KjtqSSnnHwP9lyoamqqfkas9kypnpIHuOm_J5r408KVmhKD_5S1MA5SkD2so26lyPzFYS_Aj5fCkqqxB_yE3dnEhlo-wGzUW_x1OsHGEOIyBH1k5pYCRhcWaESg6FFcEYaipb-BVvMWtVDPTZ84rJKhmOIz1X9eCak-c5zbbmE4AYw6KpdwMcD2HX9jsxcnQojQQ73qGm5oX_wkQlD2U0f-"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B2</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">490 nm</span>
+</div>
+<!-- Band 3 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-110" data-alt="Monochromatic radiometric sensor raster image representing Sentinel-2 Band 3 Green channel at 560nm capturing moderate vegetation reflectance peak." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-I-H1K7cifKYOJUUZXg0V4BYp02LAatAfbJ0EE3gDe0ihcpFEgxiPr_QEv_zhVXCVw_m3ZtMEs1KPXfhG6GXHQa8j_upq7X5pyZpxM_gEev4dlh4AyRzrCaQ22tJhns8Z62tl3AFpEQd-YgKvd40PiY5Ld2JAiUpV_2IUXLJWGI8FVSWhBkstLoenPkSr831pCIpWX0CSIdRhB0n-eJIGBUC5GArJt6tGm4KIN41"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B3</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">560 nm</span>
+</div>
+<!-- Band 4 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-75 contrast-150" data-alt="High absorption dark monochrome satellite raster of Sentinel-2 Band 4 Red band 665nm demonstrating intense chlorophyll absorption in tree canopies." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM-em8LuL1wAZMhQzPHjqBIawGnIn-Pm52b9M1sTjo7uDnVl9S0tmQXnOra_IfRXOVFm0a9aS9tADUw0_E1y29DRJTItM9uI8U7MIBAmgA-16Ddah6sn6YaA-EjRSFyQeK28cpz41gpC1DcwHlhlvizPxpFy7cbJVAlvi-P00_SwZNxW7-FxdGL58BnENiRkOF1OyIGjJbNOg4eaINOkTl3NdlxdWOkCxK757SNmZo"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B4</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">665 nm</span>
+</div>
+<!-- Band 5 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-105" data-alt="Grayscale satellite image of Sentinel-2 Band 5 Red Edge 1 at 705nm capturing the beginning of vegetation red edge steep slope transition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKRqm1VEH-gU6ytNMwKUz1n-0LQRcDKxZ9bGkdal6jbQWwsfABBf3pI2lRUjFbpr9WSq3ocZEKCuLjCDB7Bc13ulGbqZPpn3fUflBnIxJPqydia6njrSkVzZzO0iKXEdCIQtZAnELKjVxz9FEGTcXobhvDhK3t-4Aa99WBi81b1C1J3AGLPt7HpzEdQtXxjyKWJsxrtwO28WSmI2gXWxm8DX2GivTTzAn0KGMA0ezG"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B5</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">705 nm</span>
+</div>
+<!-- Band 6 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-125" data-alt="Grayscale satellite image of Sentinel-2 Band 6 Red Edge 2 at 740nm displaying rising reflectance across forest biomes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_m-ibTwG6btymAIfsMlWxGylSorH3e52i7EZAb-nWf71aml0WSNuHGFBb0R91Oh0vEk1Mj09tplmvfAHIDw7kSEemfuV1rfpSem00sIrYXEriAWxFnUsJtzTkGKDBivtbj-hm0kwNPecqpqbeH97Da8njF-8yS_NN6MasHttIhwXBFt-UWfx8lvipo_QBIlpDc485TmwYa-3TWcjhxt7dyxZS4dCcQfj4QRKw5jBf"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B6</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">740 nm</span>
+</div>
+<!-- Band 7 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-135 contrast-110" data-alt="Monochrome satellite image of Sentinel-2 Band 7 Red Edge 3 at 783nm showing high cellular backscatter in healthy leaf tissue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYbVsoXn3fK61Gl1lM-K3rmexOuvGjDLH2vPM9tp5seCokwvXZeP7mvfsBtnG-yNTU8Hv52BIq-bqRHF8kF3dPN4CY0SYyuCm6cM0k1lU8m-nxt7eXHhzSKG0Dr7PhJM-HiTCsfWIt94vuDjHe09BDxYE1Pkp5puG6707KdpsEt4jBZceJPkzE8W-hKdMt8vgg6uZkHv-KpN3GJG2-R0h5JQLjJSTBj332lviZYRoy"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B7</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">783 nm</span>
+</div>
+<!-- Band 8 (Active / Highlighted) -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-secondary-container/40 ring-1 ring-secondary group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-150 contrast-125" data-alt="Brilliant high-reflectance grayscale raster of Sentinel-2 Band 8 Near Infrared NIR at 842nm with bright high-intensity values across vibrant vegetation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmzgLKQifiah8JkV0HxEjMe27FoIBEVo951TL8KTopZa1AnnNnBxbAVM3FNZyqvQ46DDXrYiZeq_QPPCVjgwV7E_6t6AuuDXSvxwuQBZ1JR05DopSAWuIRm4aoOV840CUKiwBeLHGjRiJ52BJoZUV-96MtoMKH2Emg7s-hZM4DlSSG67xEs_KilLRzbftR8u5MiQ67eKcqm635cnZV-5XLa211HSNppD9D8PbZlMZk"/>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary mt-1">B8 (NIR)</span>
+<span class="font-body-sm text-[10px] text-secondary font-semibold truncate max-w-full">842 nm</span>
+</div>
+<!-- Band 8A -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-140" data-alt="Grayscale satellite image of Sentinel-2 Band 8A Narrow NIR at 865nm showing focused plant water content and biomass reflectance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNyQKEVjL71vqkbpyPF7SKhmPkVuFboN6pMuFsmjCnzW_BF8Qrq0TC7HFIKlFVdmBcKAUkhrCbLmic53BfWZtXCsIzJh5joY7jHXmV4_9JwyP5Laf_b3essnJbpZcu16W4bvye2crScOsHw98wS7EDEXmBqIAH3CMYbTbml5NINgLQsFKj42rWSu168vVJXIs-ROqAJPzsRDHXbkFEorQKDwftUMVA45Wq143htBGP"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B8A</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">865 nm</span>
+</div>
+<!-- Band 9 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-85" data-alt="Grayscale satellite observation of Sentinel-2 Band 9 Water Vapour at 945nm showing atmospheric absorption characteristics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcT0H813Ri4i1ZOi7nuuLsQaI1f7gCKl6UfbGKN2xLh3CvFdeo-Lp0ebshndVfIbjxivMO5AVY0K13pjLfxkRinKqKxMxsKcXvfbXeAbSa3jMreUi2XfFtsK_iN8AZJaEBdDXUWRrfFPfj5IiSiHhXeVKf1aoq29W8qYKlIBIukol53klysg1bsWgtm-HA-JpVbGEI_vhapba0yHnfYIWe7W-pDVpZCVWl3GEAqCeG"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B9</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">945 nm</span>
+</div>
+<!-- Band 10 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-60 contrast-125" data-alt="Subdued dark monochrome satellite band image of Sentinel-2 Band 10 Cirrus channel 1375nm showing atmospheric attenuation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHcaujjHEgUTvivjPwYXslNJg8cCTOsPb9sekBvYAud2BbTYE6glsV1c9mnmy5XVhluxmJITu3gtDDWODjJ6E05DkLvheG9hSZd-tbUuHsoLJOrt8RP3Q70pLTmW2PjLjDEX8xEuhiBx0g-STRoJFao3OyQf2AcUHrd70wqTTRL_MGTZmBCIwVOTO6CATcWYduqNJ9YH7NNmvchpl5il9yec9scS6y8rvrJWVyiyhp"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B10</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">1375 nm</span>
+</div>
+<!-- Band 11 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-95" data-alt="Grayscale satellite image of Sentinel-2 Band 11 SWIR-1 at 1610nm showing canopy moisture and soil moisture interaction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDROK-H5R6hVFLhYarCfsOpDjTJFkqOpG1aDFuQO7xGrF1chP6c9sMDIzyrG2pJf6z7JHqfMpUJ8rsLfmgXKVdzvqn8kBsEL4Dux9-xeMq9ZPFMKX7qsAZhgkH0qEA5keR9yU5313Xg7Q_m-RquGFbUiFuO_2fwgaYknG4BYK3mj_t41e-BLOL1c9WfENoWyrzFTURBOnMhMWduIywCDpnmQtX4Ojp6HZlYVRFBQZND"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B11</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">1610 nm</span>
+</div>
+<!-- Band 12 -->
+<div class="flex flex-col items-center p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="w-full aspect-square rounded-md overflow-hidden bg-surface-container-highest shadow-inner relative">
+<img class="w-full h-full object-cover grayscale brightness-80" data-alt="Grayscale satellite sensor band image for Sentinel-2 Band 12 SWIR-2 at 2190nm showing leaf water absorption trough in temperate forest." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbZN9gl-bcM49QYZHlyvQsoUSAo1qdR_aMo5pvX8e42notbl5LN8j9CKimKcztjKx-RPLumb4FBl50s5unD76CDGEHLdFZ8k1gQTuBZ56R4SrFBUB7R14dN4rQwPuAikHDIVkneSqHKOEfkJpvwhBoyxmKTBehmxFm89fB2eL8_vJNySKFZ7MCg1hiOKSULjCqk2qSSfYyoJqBDp7J203saeFgcmezPdJxH3WQ8PSo"/>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">B12</span>
+<span class="font-body-sm text-[10px] text-outline truncate max-w-full">2190 nm</span>
+</div>
+<!-- Info Tile: Resolution Summary -->
+<div class="flex flex-col items-center justify-center p-1.5 rounded-lg bg-surface-container border border-surface-container-high text-center">
+<span class="material-symbols-outlined text-[20px] text-primary">satellite</span>
+<span class="font-label-md text-label-md font-bold text-primary mt-0.5">MSI</span>
+<span class="font-body-sm text-[9px] text-outline leading-tight">Sentinel-2A/B</span>
+</div>
+</div>
+<!-- Band Filter / Composite Generator Micro-bar -->
+<div class="mt-space-md pt-space-sm border-t border-surface-container-high flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Quick False Color:</span>
+<button class="px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high hover:bg-secondary-container hover:text-on-secondary-container rounded transition-colors text-on-surface">Color Infrared (B8, B4, B3)</button>
+<button class="px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high hover:bg-secondary-container hover:text-on-secondary-container rounded transition-colors text-on-surface">Agriculture (B11, B8, B2)</button>
+<button class="px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high hover:bg-secondary-container hover:text-on-secondary-container rounded transition-colors text-on-surface">NDVI Ratio ((B8-B4)/(B8+B4))</button>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Calibration: L1C Top-Of-Atmosphere</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Spectral Signature (Mean Reflectance) (Matches Bottom of Row 2 Col 3) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">show_chart</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Spectral Signature (Mean Reflectance)</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Radiometric signature profile across all 13 multispectral bands for selected class</p>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-on-surface">
+<span class="w-3 h-0.5 bg-secondary rounded-full"></span>
+<span>Forest (Active)</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-outline">
+<span class="w-3 h-0.5 bg-outline-variant border-b border-dashed border-outline"></span>
+<span>River Baseline</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-outline">
+<span class="w-3 h-0.5 bg-outline rounded-full"></span>
+<span>Urban / Highway</span>
+</div>
+</div>
+</div>
+<!-- Vector Chart: Multispectral Reflectance Curve -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md relative overflow-hidden">
+<!-- Coordinate and Grid SVG Chart -->
+<div class="w-full h-64 relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 960 240">
+<defs>
+<lineargradient id="forestGlow" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#1B6D24" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#1B6D24" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="lineGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#1B6D24"></stop>
+<stop offset="50%" stop-color="#217128"></stop>
+<stop offset="100%" stop-color="#0F3D2E"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Reference Gridlines (0.0 to 0.8) -->
+<!-- 0.8 line -->
+<line stroke="#E4E3DA" stroke-dasharray="3 3" stroke-width="1" x1="45" x2="940" y1="20" y2="20"></line>
+<text fill="#717974" font-family="Inter" font-size="10" text-anchor="end" x="32" y="24">0.8</text>
+<!-- 0.6 line -->
+<line stroke="#E4E3DA" stroke-dasharray="3 3" stroke-width="1" x1="45" x2="940" y1="70" y2="70"></line>
+<text fill="#717974" font-family="Inter" font-size="10" text-anchor="end" x="32" y="74">0.6</text>
+<!-- 0.4 line -->
+<line stroke="#E4E3DA" stroke-dasharray="3 3" stroke-width="1" x1="45" x2="940" y1="120" y2="120"></line>
+<text fill="#717974" font-family="Inter" font-size="10" text-anchor="end" x="32" y="124">0.4</text>
+<!-- 0.2 line -->
+<line stroke="#E4E3DA" stroke-dasharray="3 3" stroke-width="1" x1="45" x2="940" y1="170" y2="170"></line>
+<text fill="#717974" font-family="Inter" font-size="10" text-anchor="end" x="32" y="174">0.2</text>
+<!-- 0.0 Baseline -->
+<line stroke="#C0C8C3" stroke-width="1.5" x1="45" x2="940" y1="220" y2="220"></line>
+<text fill="#717974" font-family="Inter" font-size="10" text-anchor="end" x="32" y="223">0.0</text>
+<!-- Vertical Guides for 13 bands (Equal steps: ~74px between bands) -->
+<!-- X-Coords: B1:65, B2:138, B3:211, B4:284, B5:357, B6:430, B7:503, B8:576, B8A:649, B9:722, B10:795, B11:868, B12:935 -->
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="65" x2="65" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="138" x2="138" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="211" x2="211" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="284" x2="284" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="357" x2="357" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="430" x2="430" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="503" x2="503" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="576" x2="576" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="649" x2="649" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="722" x2="722" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="795" x2="795" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="868" x2="868" y1="20" y2="220"></line>
+<line stroke="#E4E3DA" stroke-opacity="0.6" stroke-width="1" x1="935" x2="935" y1="20" y2="220"></line>
+<!-- River Comparison Curve (Muted dashed) -->
+<path d="M 65,195 Q 138,190 211,185 T 284,205 T 357,215 T 430,217 T 503,218 T 576,218 T 649,219 T 722,219 T 795,219 T 868,219 T 935,219" fill="none" opacity="0.6" stroke="#717974" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<!-- Forest Curve Fill (Vegetation signature: low blue/red, slight green peak, high NIR plateau, SWIR moderate) -->
+<path d="M 65,208 L 138,206 L 211,192 L 284,204 L 357,162 L 430,95 L 503,62 L 576,50 L 649,58 L 722,175 L 795,215 L 868,145 L 935,178 L 935,220 L 65,220 Z" fill="url(#forestGlow)"></path>
+<!-- Forest Main Curve Stroke -->
+<path d="M 65,208 L 138,206 L 211,192 L 284,204 L 357,162 L 430,95 L 503,62 L 576,50 L 649,58 L 722,175 L 795,215 L 868,145 L 935,178" fill="none" stroke="url(#lineGrad)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Band Points with Interactivity -->
+<circle cx="65" cy="208" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="138" cy="206" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="211" cy="192" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="284" cy="204" fill="#BA1A1A" r="4" stroke="#BA1A1A" stroke-width="2"></circle> <!-- Absorption dip -->
+<circle cx="357" cy="162" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="430" cy="95" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="503" cy="62" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<!-- Active B8 point with pulsing ring -->
+<circle cx="576" cy="50" fill="#1B6D24" opacity="0.3" r="7"></circle>
+<circle cx="576" cy="50" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="649" cy="58" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="722" cy="175" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="795" cy="215" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="868" cy="145" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<circle cx="935" cy="178" fill="#FFFFFF" r="4" stroke="#1B6D24" stroke-width="2"></circle>
+<!-- Tooltip Marker on B8 NIR Peak -->
+<rect fill="#00261A" height="24" rx="4" width="80" x="536" y="16"></rect>
+<text fill="#FFFFFF" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="576" y="32">B8: 0.68 ?</text>
+</svg>
+</div>
+<!-- X-Axis Band Labels (B1 to B12 matching the SVG coordinates) -->
+<div class="grid grid-cols-13 text-center mt-2 px-6 font-label-md text-label-md text-on-surface-variant font-medium">
+<span class="hover:text-primary cursor-pointer">B1</span>
+<span class="hover:text-primary cursor-pointer">B2</span>
+<span class="hover:text-primary cursor-pointer">B3</span>
+<span class="hover:text-primary cursor-pointer text-error font-bold" title="Red absorption trough">B4</span>
+<span class="hover:text-primary cursor-pointer">B5</span>
+<span class="hover:text-primary cursor-pointer">B6</span>
+<span class="hover:text-primary cursor-pointer">B7</span>
+<span class="text-secondary font-bold" title="NIR Reflectance Peak">B8</span>
+<span class="hover:text-primary cursor-pointer">B8A</span>
+<span class="hover:text-primary cursor-pointer">B9</span>
+<span class="hover:text-primary cursor-pointer">B10</span>
+<span class="hover:text-primary cursor-pointer">B11</span>
+<span class="hover:text-primary cursor-pointer">B12</span>
+</div>
+</div>
+<!-- Analytical Metric Cards Breakdown below curve -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-space-md mt-space-md">
+<!-- Metric 1: Peak NIR Reflectance -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">NIR Peak (B8)</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">trending_up</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary font-tabular-metrics">0.68</span>
+<span class="text-body-sm font-label-md text-secondary ml-1 font-semibold">+412% over B4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strong spongy mesophyll backscatter indicative of healthy crown foliage.</p>
+</div>
+<!-- Metric 2: NDVI Spectral Index -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">NDVI Index</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">eco</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary font-tabular-metrics">0.86</span>
+<span class="text-body-sm font-label-md text-secondary ml-1 font-semibold">Dense Veg</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Formula: (B08 - B04) / (B08 + B04). Extremely high photosynthetic vitality.</p>
+</div>
+<!-- Metric 3: Red Edge Slope -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">Red Edge Gradient</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">insights</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary font-tabular-metrics">3.92</span>
+<span class="text-body-sm font-label-md text-on-surface-variant ml-1 font-medium">?? / 100nm</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Steep increase from B5 (705nm) to B7 (783nm) separating forest from crops.</p>
+</div>
+<!-- Metric 4: Water Deficit / NDWI -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">Canopy Water (NDWI)</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">water_drop</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary font-tabular-metrics">0.42</span>
+<span class="text-body-sm font-label-md text-secondary ml-1 font-semibold">Optimal</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calculated from (B8A - B11)/(B8A + B11). Zero leaf water stress detected.</p>
+</div>
+</div>
+<!-- Active Band Inspector Detail Table -->
+<div class="mt-space-lg rounded-xl bg-surface-container-low p-space-md overflow-x-auto">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Band Calibration Specifications</h3>
+<span class="font-label-md text-label-md text-outline">Sensor: ESA MSI Instrument payload</span>
+</div>
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="text-outline uppercase text-[11px] font-semibold border-b border-surface-container-high pb-2">
+<th class="py-2">Band Designation</th>
+<th class="py-2">Central Wavelength</th>
+<th class="py-2">Spectral Bandwidth</th>
+<th class="py-2">Spatial Resolution</th>
+<th class="py-2">Mean Radiance (Forest)</th>
+<th class="py-2">Feature Diagnostic Role</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/60">
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 font-semibold text-primary">B02 - Blue</td>
+<td class="py-2 font-tabular-metrics">490 nm</td>
+<td class="py-2 font-tabular-metrics">65 nm</td>
+<td class="py-2">10 m</td>
+<td class="py-2 font-tabular-metrics">0.064 ?</td>
+<td class="py-2 text-on-surface-variant">Soil vs. vegetation discrimination</td>
+</tr>
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 font-semibold text-primary">B03 - Green</td>
+<td class="py-2 font-tabular-metrics">560 nm</td>
+<td class="py-2 font-tabular-metrics">35 nm</td>
+<td class="py-2">10 m</td>
+<td class="py-2 font-tabular-metrics">0.112 ?</td>
+<td class="py-2 text-on-surface-variant">Chlorophyll peak reflectance measurement</td>
+</tr>
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 font-semibold text-primary">B04 - Red</td>
+<td class="py-2 font-tabular-metrics">665 nm</td>
+<td class="py-2 font-tabular-metrics">30 nm</td>
+<td class="py-2">10 m</td>
+<td class="py-2 font-tabular-metrics">0.051 ?</td>
+<td class="py-2 text-on-surface-variant">Maximum chlorophyll absorption trough</td>
+</tr>
+<tr class="hover:bg-surface-container/50 bg-secondary-container/20">
+<td class="py-2 font-bold text-secondary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              B08 - Near Infrared (NIR)
+            </td>
+<td class="py-2 font-tabular-metrics font-semibold text-secondary">842 nm</td>
+<td class="py-2 font-tabular-metrics">115 nm</td>
+<td class="py-2 font-semibold">10 m</td>
+<td class="py-2 font-tabular-metrics font-bold text-secondary">0.684 ?</td>
+<td class="py-2 font-medium text-primary">Biomass volume, leaf area index (LAI) predictor</td>
+</tr>
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 font-semibold text-primary">B11 - SWIR 1</td>
+<td class="py-2 font-tabular-metrics">1610 nm</td>
+<td class="py-2 font-tabular-metrics">90 nm</td>
+<td class="py-2">20 m</td>
+<td class="py-2 font-tabular-metrics">0.248 ?</td>
+<td class="py-2 text-on-surface-variant">Canopy moisture and dry matter delineation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive client-side highlight for spectral band exploration
+  document.querySelectorAll('[data-alt]').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'all 0.3s ease';
+    });
+  });
+</script></main></div><script src="api.js"></script></body></html>
