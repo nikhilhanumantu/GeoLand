@@ -69,7 +69,8 @@ def compute_gradcam_overlay(
     model_name: str = "best_model",
     target_category: int = None,
     device=None,
-    use_gradcam_plus_plus: bool = True
+    use_gradcam_plus_plus: bool = True,
+    img_size: int = None
 ):
     """
     Computes Grad-CAM/Grad-CAM++ heatmap and blends it with the original RGB image.
@@ -84,14 +85,15 @@ def compute_gradcam_overlay(
     model.eval().to(device)
 
     # Preprocess image using unified img_size
-    meta_path = "models/best_model_metadata.json"
-    img_size = 112
-    if os.path.exists(meta_path):
-        try:
-            with open(meta_path, "r") as f:
-                img_size = int(json.load(f).get("img_size", 112))
-        except Exception:
-            pass
+    if img_size is None:
+        meta_path = "models/best_model_metadata.json"
+        img_size = 112
+        if os.path.exists(meta_path):
+            try:
+                with open(meta_path, "r") as f:
+                    img_size = int(json.load(f).get("img_size", 112))
+            except Exception:
+                pass
 
     eval_transform = transforms.Compose([
         transforms.Resize((img_size, img_size)),

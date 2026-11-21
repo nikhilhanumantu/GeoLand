@@ -278,7 +278,8 @@ async def explain_prediction(
         model_name=app_state["model_name"],
         target_category=target_cat_idx,
         device=app_state["device"],
-        use_gradcam_plus_plus=use_plus_plus
+        use_gradcam_plus_plus=use_plus_plus,
+        img_size=app_state["img_size"]
     )
 
     pred_class = app_state["classes"][pred_idx]
@@ -490,13 +491,13 @@ def get_dataset_samples(limit_per_class: int = 3):
 @app.post("/restore")
 async def restore_image_endpoint(
     file: UploadFile = File(...),
-    model_version: str = Form("v1.4"),
+    model_version: str = Form("satellite_sr"),
     scale: int = Form(2),
 ):
     """
-    AI Image Restoration and Super-Resolution.
-    Tries HF Space GFPGAN first; falls back to local satellite enhancement.
-    Returns base64 restored image, resolution change, sharpness improvement.
+    Satellite Imagery Super-Resolution and Detail Enhancement.
+    Applies dedicated spatial upscaling, geospatial unsharp masking, and CLAHE contrast tuning.
+    Returns base64 restored image, resolution change, and sharpness improvement metric.
     """
     raw_image = read_image_from_upload(file)
 

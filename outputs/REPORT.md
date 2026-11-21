@@ -30,10 +30,12 @@ Consequently, this project benchmarks multiple state-of-the-art vision backbones
 
 * **Dataset:** 26,990 EuroSAT RGB images ($64 \times 64$ native resolution) spanning 10 balanced classes:  
   `AnnualCrop`, `Forest`, `HerbaceousVegetation`, `Highway`, `Industrial`, `Pasture`, `PermanentCrop`, `Residential`, `River`, `SeaLake`.
-* **Stratified Split (Fixed Seed = 42):**
-  * Train Set: 70% (2,500 representative active samples, 250 per class)
-  * Validation Set: 15% (750 active samples, 75 per class)
-  * Test Set: 15% (750 active samples, 75 per class, strictly held out)
+* **Stratified Active Subset (from 26,990 Master EuroSAT Dataset, Seed = 42):**
+  * **Master Dataset:** 26,990 Sentinel-2 RGB patches partitioned into standard 70% Train (18,893) / 15% Val (4,048) / 15% Test (4,049).
+  * **Stratified Active Experimental Subset:** 4,000 balanced images drawn across all 10 classes:
+    * **Train Set:** 2,500 active samples (62.5% of active subset, 250 per class)
+    * **Validation Set:** 750 active samples (18.75% of active subset, 75 per class)
+    * **Test Set:** 750 active samples (18.75% of active subset, 75 per class, strictly held out)
   * Split reproducibility guaranteed via `outputs/split_indices.json`.
 * **Preprocessing & Augmentation:**
   * Training: Random horizontal/vertical flips, 90-degree orthogonal rotations, mild color jitter ($\pm 10\%$).
@@ -75,18 +77,18 @@ Optical satellite sensors routinely suffer from optical defocus, atmospheric haz
 
 | Corruption Tier | Severity | ResNet-50 Acc (Drop) | EfficientNet-B0 Acc (Drop) | ConvNeXt-Tiny Acc (Drop) |
 | :--- | :---: | :---: | :---: | :---: |
-| **Clean Baseline** | $\sigma = 0$ | 55.07% (0.0%) | 42.53% (0.0%) | **93.20%** (0.0%) |
-| **Gaussian Blur** | $\sigma = 1.0$ | 31.73% (-23.33%) | 39.73% (-2.80%) | **87.87%** (-5.33%) |
-| **Gaussian Blur** | $\sigma = 2.0$ | 17.33% (-37.73%) | 24.93% (-17.60%) | **68.80%** (-24.40%) |
-| **Gaussian Blur** | $\sigma = 3.0$ | 11.33% (-43.73%) | 18.80% (-23.73%) | **49.73%** (-43.47%) |
-| **Gaussian Blur** | $\sigma = 5.0$ | 10.00% (-45.07%) | 11.87% (-30.67%) | **30.93%** (-62.27%) |
-| **Gaussian Noise** | $\text{std} = 0.05$ | 20.80% (-34.27%) | 10.40% (-32.13%) | **63.47%** (-29.73%) |
-| **Gaussian Noise** | $\text{std} = 0.10$ | 12.27% (-42.80%) | 17.47% (-25.07%) | **41.20%** (-52.00%) |
-| **Gaussian Noise** | $\text{std} = 0.20$ | 10.27% (-44.80%) | 11.20% (-31.33%) | **19.07%** (-74.13%) |
-| **Gaussian Noise** | $\text{std} = 0.30$ | 10.00% (-45.07%) | 10.40% (-32.13%) | **12.67%** (-80.53%) |
+| **Clean Baseline** | $\sigma = 0$ | 85.47% (0.0%) | 85.20% (0.0%) | **93.33%** (0.0%) |
+| **Gaussian Blur** | $\sigma = 1.0$ | 76.93% (-8.53%) | 73.60% (-11.60%) | **90.40%** (-2.93%) |
+| **Gaussian Blur** | $\sigma = 2.0$ | 52.80% (-32.67%) | 45.20% (-40.00%) | **75.47%** (-17.87%) |
+| **Gaussian Blur** | $\sigma = 3.0$ | 33.07% (-52.40%) | 36.80% (-48.40%) | **61.60%** (-31.73%) |
+| **Gaussian Blur** | $\sigma = 5.0$ | 16.13% (-69.33%) | 22.67% (-62.53%) | **45.33%** (-48.00%) |
+| **Gaussian Noise** | $\text{std} = 0.05$ | 51.87% (-33.60%) | 24.53% (-60.67%) | **78.40%** (-14.93%) |
+| **Gaussian Noise** | $\text{std} = 0.10$ | 26.13% (-59.33%) | 14.13% (-71.07%) | **62.53%** (-30.80%) |
+| **Gaussian Noise** | $\text{std} = 0.20$ | 16.80% (-68.67%) | 6.93% (-78.27%) | **33.73%** (-59.60%) |
+| **Gaussian Noise** | $\text{std} = 0.30$ | 12.40% (-73.07%) | 9.73% (-75.47%) | **19.60%** (-73.73%) |
 
 ### Robustness Insights & Why ConvNeXt-Tiny Resisted Degradation:
-1. **Severe Defocus Resilience:** Under mild blur ($\sigma = 1.0$), ConvNeXt-Tiny maintained an operational **87.87% accuracy**, whereas ResNet-50 collapsed to 31.73%. Even under severe blur ($\sigma = 2.0$), ConvNeXt-Tiny remained viable at 68.80%, outperforming the clean performance of baseline models.
+1. **Severe Defocus Resilience:** Under mild blur ($\sigma = 1.0$), ConvNeXt-Tiny maintained an operational **90.40% accuracy** (only -2.93% drop), whereas ResNet-50 dropped to 76.93% and EfficientNet-B0 to 73.60%. Even under moderate blur ($\sigma = 2.0$), ConvNeXt-Tiny remained viable at **75.47%**, outperforming the degraded baselines.
 2. **Receptive Field Advantage:** ResNet-50 relies on tightly coupled $3 \times 3$ convolutional kernels that depend heavily on sharp pixel gradients. When blur destroys edge gradients, ResNet feature activations degrade into noise. ConvNeXt's $7 \times 7$ depthwise kernels aggregate broader macro-textures and spatial context, preserving semantic cues even when high-frequency edges are attenuated.
 3. **Class Fragility Distribution:**
    * **Most Fragile Classes:** `Highway` and `Residential`. These classes depend critically on high-frequency linear geometry (road lanes) and discrete spatial patterns (individual rooftops). Under blur, roads blur into waterways and residential rooftops blend into agricultural fields.

@@ -90,7 +90,7 @@ def run_complete_pipeline(
         "best_model_name": best_model_name,
         "best_val_accuracy": best_val_acc,
         "selected_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-        "img_size": getattr(args, "img_size", 112),
+        "img_size": img_size,
         "classes": classes
     }, os.path.join(models_dir, "best_model_metadata.json"))
     print(f"[Model Selection] Copied {best_weights_paths[best_model_name]} -> {best_pt_path}")

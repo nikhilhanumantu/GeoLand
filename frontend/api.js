@@ -91,8 +91,8 @@ async function fetchPresetSamples() {
     return await apiRequest("/preset-samples");
 }
 
-// 6. Image Restoration (HF GFPGAN / local fallback)
-async function restoreImage(fileOrBlob, modelVersion = "v1.4", scale = 2) {
+// 6. Satellite Image Super-Resolution & Enhancement
+async function restoreImage(fileOrBlob, modelVersion = "satellite_sr", scale = 2) {
     const formData = new FormData();
     formData.append("file", fileOrBlob, fileOrBlob.name || "satellite.jpg");
     formData.append("model_version", modelVersion);
@@ -226,6 +226,13 @@ function setupClassificationPage() {
         currentSegmentationOverlay = null;
         showingGradcam = false;
         setLayer("optical");
+
+        // Clear active highlights on benchmark sample buttons
+        sampleButtons.forEach(b => {
+            b.className = "sample-btn px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors";
+            const dot = b.querySelector(".w-1.5");
+            if (dot) dot.remove();
+        });
 
         const reader = new FileReader();
         reader.onload = (evt) => {
@@ -386,8 +393,7 @@ function setupClassificationPage() {
                     imgElement.src = result.restored_image_base64;
                     const toast = document.createElement("div");
                     toast.className = "fixed bottom-4 right-4 bg-secondary text-on-secondary p-3 rounded-lg text-xs font-semibold shadow-lg z-50 max-w-sm";
-                    const src = result.method_used.includes("Hugging") ? "GFPGAN HF Space" : "Local Satellite SR";
-                    toast.textContent = `✅ ${result.original_resolution} → ${result.restored_resolution} | Sharpness +${result.sharpness_improvement_pct}% | ${src}`;
+                    toast.textContent = `✅ Enhanced: ${result.original_resolution} → ${result.restored_resolution} | Sharpness +${result.sharpness_improvement_pct}% | Satellite Super-Res`;
                     document.body.appendChild(toast);
                     setTimeout(() => toast.remove(), 5000);
                     runInference();
@@ -527,6 +533,12 @@ function setupClassificationPage() {
         if (sensorBadge) sensorBadge.textContent = isEurosatScale ? "Sentinel-2 MSI" : "Custom Upload";
         if (gsdBadge) gsdBadge.textContent = isEurosatScale ? "10m / px" : `${wPx} × ${hPx} px`;
         if (scaleBadge) scaleBadge.textContent = isEurosatScale ? "640m × 640m" : `${wPx} × ${hPx} px`;
+
+        // Hide EuroSAT specific GPS and Band overlay pills on custom aerial uploads
+        const coordsPill = document.getElementById("overlay-coordinates-pill");
+        const bandTagPill = document.getElementById("overlay-band-tag-pill");
+        if (coordsPill) coordsPill.style.display = isEurosatScale ? "flex" : "none";
+        if (bandTagPill) bandTagPill.style.display = isEurosatScale ? "flex" : "none";
 
         // Update Viewport Confidence Badge
         const viewportBadge = document.getElementById("viewport-conf-badge");
@@ -700,8 +712,13 @@ function setupClassificationPage() {
             if (!uncertBanner) {
                 uncertBanner = document.createElement("div");
                 uncertBanner.id = "uncertainty-warning-banner";
-                uncertBanner.className = "p-3 bg-secondary-container text-on-secondary-container rounded-lg text-xs font-semibold mb-3 flex items-center gap-2 border border-secondary/30";
-                classNameEl?.closest(".bg-surface-container-low")?.prepend(uncertBanner);
+                uncertBanner.className = "w-full p-3 bg-secondary-container text-on-secondary-container rounded-lg text-xs font-semibold mb-3 flex items-center gap-2 border border-secondary/30";
+                const card = classNameEl?.closest(".bg-surface-container-low");
+                if (card && card.parentNode) {
+                    card.parentNode.insertBefore(uncertBanner, card);
+                } else if (card) {
+                    card.prepend(uncertBanner);
+                }
             }
             const isComposite = data.deep_analysis?.is_composite_scene;
             const topClass = data.top_3?.[0]?.class || pred.class;
